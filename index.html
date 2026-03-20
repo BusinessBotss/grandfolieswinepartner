@@ -484,7 +484,7 @@ section { position: relative; overflow: hidden; }
 }
 
 .dual-photo { display: grid; grid-template-columns: 1fr 1fr; height: 50vh; }
-.dual-photo img { width: 100%; height: 100%; object-fit: cover; }
+.dual-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
 
 /* ——— INCENTIVES ——— */
 .incentives {
@@ -912,11 +912,11 @@ section { position: relative; overflow: hidden; }
   <div class="closing-inner">
     <p class="closing-quote reveal" data-i18n="closing_quote"></p>
     <div class="closing-line reveal"></div>
-    <p class="closing-contact reveal"><a href="mailto:magape09@gmail.com">magape09@gmail.com</a></p>
+    <p class="closing-contact reveal"><a href="/cdn-cgi/l/email-protection#f994989e98899cc9c0b99e94989095d79a9694"><span class="__cf_email__" data-cfemail="0e636f696f7e6b3e374e69636f6762206d6163">[email&#160;protected]</span></a></p>
   </div>
 </section>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const T = {
 es: {
   cover_label: "Propuesta Exclusiva de Vinos",
@@ -1301,13 +1301,4 @@ function setLang(lang) {
 setLang('es');
 
 // Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-</body>
-</html>
+const observer = new IntersectionObserver((ent
