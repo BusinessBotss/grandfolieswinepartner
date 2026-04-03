@@ -3,129 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wine Proposal — Gran Folies Beach Club 2026</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<title>Guía de Cata — Gran Folies Beach Club 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
 :root {
-  --ink: #2c2620;
-  --cream: #f4efe6;
-  --sand: #e6ddd0;
-  --terracotta: #c4785a;
-  --terracotta-deep: #a8583d;
-  --olive: #6b7c5e;
-  --olive-dark: #4a5940;
-  --sea: #7a9bae;
-  --sea-deep: #5a7d92;
-  --warm-white: #faf6f0;
-  --gold: #c9a96e;
+  --ink: #1e1a16;
+  --cream: #f7f3ec;
+  --warm-white: #fdfaf5;
+  --parchment: #ede6d8;
+  --burgundy: #6b2d3e;
+  --burgundy-light: #8a3c52;
+  --burgundy-pale: rgba(107,45,62,0.06);
+  --gold: #b8965a;
+  --gold-muted: #c9a96e;
   --stone: #8e857a;
   --clay: #d4a882;
-  --linen: #ede6d8;
+  --olive: #5a6b4a;
+  --olive-muted: #7a8c6a;
+  --sand: #ddd5c5;
+  --terracotta: #b86f4e;
+  --white-wine: #e8d990;
+  --red-wine: #722f37;
+  --ruby: #9b1b30;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body {
   font-family: 'DM Sans', sans-serif;
   background: var(--cream);
   color: var(--ink);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-section { position: relative; overflow: hidden; }
-
-/* ——— LANGUAGE SELECTOR ——— */
-.lang-selector {
+/* ——— GRAIN OVERLAY ——— */
+body::after {
+  content: '';
   position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 1000;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-.lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(44,38,32,0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212,168,130,0.2);
-  color: var(--cream);
-  padding: 10px 18px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.lang-btn:hover {
-  border-color: var(--clay);
-}
-
-.lang-btn svg {
-  width: 14px;
-  height: 14px;
-  fill: var(--clay);
-  transition: transform 0.3s;
-}
-
-.lang-btn.open svg {
-  transform: rotate(180deg);
-}
-
-.lang-dropdown {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  background: rgba(44,38,32,0.95);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212,168,130,0.15);
-  min-width: 180px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-8px);
-  transition: all 0.3s;
-}
-
-.lang-dropdown.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.lang-option {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 18px;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: var(--stone);
-  cursor: pointer;
-  transition: all 0.2s;
-  border: none;
-  background: none;
-  width: 100%;
-  text-align: left;
-  font-family: 'DM Sans', sans-serif;
-}
-
-.lang-option:hover {
-  background: rgba(212,168,130,0.1);
-  color: var(--cream);
-}
-
-.lang-option.active {
-  color: var(--clay);
-}
-
-.lang-option .flag {
-  font-size: 16px;
-  line-height: 1;
+/* ——— SCROLL PROGRESS ——— */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--burgundy), var(--gold), var(--olive));
+  z-index: 10000;
+  transition: width 0.1s linear;
 }
 
 /* ——— COVER ——— */
@@ -136,22 +69,16 @@ section { position: relative; overflow: hidden; }
   justify-content: center;
   position: relative;
   background: var(--ink);
+  overflow: hidden;
 }
 
-.cover-bg {
+.cover::before {
+  content: '';
   position: absolute;
   inset: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  opacity: 0.35;
-}
-
-.cover-bg img { width: 100%; height: 100%; object-fit: cover; }
-
-.cover-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(44,38,32,0.85) 0%, rgba(44,38,32,0.6) 50%, rgba(44,38,32,0.8) 100%);
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 50%, rgba(107,45,62,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 80% 40%, rgba(184,150,90,0.1) 0%, transparent 70%);
 }
 
 .cover-content {
@@ -161,1155 +88,1269 @@ section { position: relative; overflow: hidden; }
   padding: 40px;
 }
 
-.cover-label {
-  font-size: 10px;
-  letter-spacing: 6px;
+.cover-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 40px;
+  opacity: 0;
+  animation: fadeIn 1s 0.2s forwards;
+}
+
+.cover-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.cover-eyebrow {
+  font-size: 9px;
+  letter-spacing: 8px;
   text-transform: uppercase;
-  color: var(--clay);
-  margin-bottom: 44px;
+  color: var(--gold-muted);
+  margin-bottom: 48px;
   font-weight: 400;
   opacity: 0;
-  animation: fadeUp 1s 0.3s forwards;
+  animation: fadeUp 1s 0.4s forwards;
 }
 
 .cover h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(40px, 7vw, 82px);
-  line-height: 1.08;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(44px, 8vw, 96px);
+  line-height: 1.05;
   color: var(--cream);
-  letter-spacing: -1px;
+  letter-spacing: -2px;
   opacity: 0;
   animation: fadeUp 1.2s 0.6s forwards;
 }
 
-.cover h1 em { font-style: italic; color: var(--clay); }
-
-.cover-venue {
-  font-size: 13px;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  color: var(--stone);
-  margin-top: 44px;
-  font-weight: 300;
-  opacity: 0;
-  animation: fadeUp 1s 1s forwards;
+.cover h1 em {
+  font-style: italic;
+  color: var(--gold);
 }
 
-.cover-year {
+.cover-sub {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  color: var(--gold);
-  margin-top: 10px;
-  letter-spacing: 6px;
+  font-size: clamp(16px, 2.2vw, 22px);
   font-weight: 300;
+  font-style: italic;
+  color: var(--stone);
+  margin-top: 28px;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeUp 1s 0.9s forwards;
+}
+
+.cover-meta {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
   opacity: 0;
   animation: fadeUp 1s 1.2s forwards;
 }
 
+.cover-meta span {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--stone);
+  font-weight: 300;
+}
+
+.cover-meta .dot {
+  width: 3px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
 .cover-line {
-  width: 1px; height: 50px;
-  background: linear-gradient(to bottom, transparent, var(--clay), transparent);
-  margin: 36px auto 0;
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, var(--gold-muted), transparent);
+  margin: 48px auto 0;
   opacity: 0;
   animation: fadeUp 1s 1.4s forwards;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-/* ——— VENUE INTRO ——— */
-.venue-intro {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 90vh;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.venue-intro-images {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+/* ——— INTRO ——— */
+.intro {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 120px 40px;
+  text-align: center;
 }
 
-.venue-intro-images img { width: 100%; height: 100%; object-fit: cover; }
-
-.venue-intro-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 60px;
-  background: var(--warm-white);
-}
-
-.section-tag {
-  font-size: 10px;
-  letter-spacing: 5px;
+.intro-tag {
+  font-size: 9px;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  color: var(--terracotta);
-  margin-bottom: 40px;
+  color: var(--burgundy);
+  margin-bottom: 36px;
   font-weight: 500;
 }
 
-.venue-intro-text h2 {
+.intro p {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
-  font-size: clamp(28px, 3.5vw, 42px);
-  line-height: 1.35;
+  font-size: clamp(18px, 2.5vw, 24px);
+  line-height: 1.8;
   color: var(--ink);
-  margin-bottom: 30px;
 }
 
-.venue-intro-text h2 em { font-style: italic; color: var(--terracotta); }
+.intro p em {
+  font-style: italic;
+  color: var(--burgundy);
+}
 
-.venue-intro-text p {
-  font-size: 14px;
-  line-height: 1.9;
+.intro-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--sand);
+  margin: 40px auto;
+}
+
+.intro .note {
+  font-size: 13px;
+  line-height: 1.8;
   color: var(--stone);
   font-weight: 300;
-  max-width: 440px;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-/* ——— PHILOSOPHY ——— */
-.philosophy {
-  min-height: 80vh;
+/* ——— RITUAL SECTION ——— */
+.ritual {
+  background: var(--ink);
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ritual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(107,45,62,0.08) 0%, transparent 70%);
+}
+
+.ritual-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.ritual .section-tag {
+  font-size: 9px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 400;
+}
+
+.ritual-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.ritual-step {
+  padding: 36px 24px;
+  border: 1px solid rgba(201,169,110,0.1);
+  text-align: center;
+  transition: border-color 0.4s;
+}
+
+.ritual-step:hover {
+  border-color: rgba(201,169,110,0.3);
+}
+
+.ritual-step .step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--gold-muted);
+  opacity: 0.4;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.ritual-step h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+
+.ritual-step p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--stone);
+  font-weight: 300;
+}
+
+/* ——— WINE TASTING CARD ——— */
+.wine-section {
+  position: relative;
+}
+
+.wine-divider {
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wine-divider.red { background: linear-gradient(to bottom, var(--cream), #f0e8dc); }
+.wine-divider.white { background: linear-gradient(to bottom, #f0e8dc, var(--cream)); }
+
+.wine-card {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  min-height: 100vh;
+  position: relative;
+}
+
+.wine-card.reverse {
+  grid-template-columns: 1fr 420px;
+}
+
+/* Visual / Bottle side */
+.wine-card-visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  overflow: hidden;
+}
+
+.wine-card-visual.bg-burgundy {
+  background: linear-gradient(165deg, #2a1418 0%, #3d1f26 40%, #1e1a16 100%);
+}
+
+.wine-card-visual.bg-ruby {
+  background: linear-gradient(165deg, #1e1620 0%, #2d1a24 40%, #1e1a16 100%);
+}
+
+.wine-card-visual.bg-gold {
+  background: linear-gradient(165deg, #2a2618 0%, #342e1e 40%, #1e1a16 100%);
+}
+
+.wine-card-visual::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.wine-card-visual.bg-burgundy::before { background: #6b2d3e; top: 30%; left: 20%; }
+.wine-card-visual.bg-ruby::before { background: #9b1b30; top: 20%; right: 10%; }
+.wine-card-visual.bg-gold::before { background: #b8965a; bottom: 20%; left: 30%; }
+
+.bottle-img {
+  max-height: 55vh;
+  max-width: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.4));
+  position: relative;
+  z-index: 1;
+  transition: transform 0.6s ease;
+}
+
+.wine-card-visual:hover .bottle-img {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.wine-number {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 120px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  z-index: 0;
+}
+
+.wine-type-badge {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  font-weight: 400;
+  z-index: 1;
+}
+
+/* Info / Tasting side */
+.wine-card-info {
+  padding: 80px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--warm-white);
+  position: relative;
+}
+
+.wine-card-info::before {
+  content: '';
+  position: absolute;
+  top: 80px;
+  bottom: 80px;
+  left: 0;
+  width: 3px;
+}
+
+.wine-card.wine-1 .wine-card-info::before { background: linear-gradient(to bottom, transparent, var(--burgundy), transparent); }
+.wine-card.wine-2 .wine-card-info::before { background: linear-gradient(to bottom, transparent, var(--ruby), transparent); }
+.wine-card.wine-3 .wine-card-info::before { background: linear-gradient(to bottom, transparent, var(--gold), transparent); }
+
+.wine-eyebrow {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.wine-1 .wine-eyebrow { color: var(--burgundy); }
+.wine-2 .wine-eyebrow { color: var(--ruby); }
+.wine-3 .wine-eyebrow { color: var(--olive); }
+
+.wine-card-info h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(38px, 4.5vw, 58px);
+  color: var(--ink);
+  margin-bottom: 4px;
+  letter-spacing: -1px;
+}
+
+.wine-card-info .wine-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--stone);
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+
+/* Tasting Wheel */
+.tasting-wheel {
+  display: flex;
+  gap: 0;
+  margin-bottom: 36px;
+  border: 1px solid var(--sand);
+  overflow: hidden;
+}
+
+.tw-segment {
+  flex: 1;
+  padding: 20px 16px;
+  text-align: center;
+  border-right: 1px solid var(--sand);
+  transition: background 0.3s;
+}
+
+.tw-segment:last-child { border-right: none; }
+.tw-segment:hover { background: var(--burgundy-pale); }
+
+.tw-segment .tw-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  margin: 0 auto 10px;
+  width: 28px;
+  height: 28px;
+}
+
+.tw-segment .tw-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--stone);
+  fill: none;
+  stroke-width: 1.2;
+}
+
+.tw-segment .tw-label {
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--stone);
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.tw-segment .tw-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Tasting notes prose */
+.tasting-prose {
+  margin-bottom: 32px;
+}
+
+.tasting-prose h4 {
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.tasting-prose p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #4a453e;
+  font-weight: 300;
+}
+
+.tasting-prose p em {
+  font-style: italic;
+  color: var(--burgundy);
+}
+
+/* Specs Grid */
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--sand);
+  border: 1px solid var(--sand);
+  margin-bottom: 32px;
+}
+
+.spec-cell {
+  padding: 16px 18px;
+  background: var(--warm-white);
+}
+
+.spec-cell label {
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--stone);
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.spec-cell span {
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* Score */
+.score-strip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+  border-top: 1px solid var(--sand);
+}
+
+.score-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wine-1 .score-circle { border: 2px solid var(--burgundy); }
+.wine-2 .score-circle { border: 2px solid var(--ruby); }
+.wine-3 .score-circle { border: 2px solid var(--olive); }
+
+.score-circle span {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.wine-1 .score-circle span { color: var(--burgundy); }
+.wine-2 .score-circle span { color: var(--ruby); }
+.wine-3 .score-circle span { color: var(--olive); }
+
+.score-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--stone);
+  font-weight: 300;
+}
+
+.score-text strong {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* Pairing strip */
+.pairing-strip {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: rgba(107,45,62,0.03);
+  border-left: 2px solid var(--sand);
+}
+
+.wine-3 .pairing-strip {
+  background: rgba(90,107,74,0.04);
+  border-left-color: var(--olive-muted);
+}
+
+.pairing-strip h5 {
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.pairing-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pairing-tag {
+  font-size: 11px;
+  color: var(--ink);
+  background: rgba(0,0,0,0.03);
+  padding: 5px 14px;
+  font-weight: 400;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* ——— SERVICE SECTION ——— */
+.service {
   padding: 100px 40px;
+  background: var(--parchment);
+  text-align: center;
+}
+
+.service .section-tag {
+  font-size: 9px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 50px;
+  font-weight: 500;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  max-width: 960px;
+  margin: 0 auto;
+  background: rgba(0,0,0,0.06);
+}
+
+.service-card {
+  background: var(--warm-white);
+  padding: 44px 28px;
+  text-align: left;
+  transition: background 0.3s;
+}
+
+.service-card:hover {
+  background: #fff;
+}
+
+.service-card .sc-icon {
+  display: flex;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 20px;
+}
+
+.service-card .sc-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: var(--terracotta);
+  fill: none;
+  stroke-width: 1.2;
+}
+
+.service-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.service-card p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--stone);
+  font-weight: 300;
+}
+
+/* ——— TEMPERATURE GUIDE ——— */
+.temp-guide {
+  padding: 80px 40px;
   background: var(--ink);
   position: relative;
 }
 
-.philosophy::before {
+.temp-guide::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('https://res.cloudinary.com/dxhef6dju/image/upload/v1774016638/56_ys4mhm.jpg') center/cover;
-  opacity: 0.1;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(184,150,90,0.05) 0%, transparent 70%);
 }
 
-.philosophy-inner { position: relative; z-index: 1; }
-
-.philosophy .section-tag { color: var(--clay); }
-
-.philosophy-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(22px, 3.2vw, 34px);
-  line-height: 1.7;
-  color: var(--cream);
-  max-width: 680px;
+.temp-inner {
+  max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
-.philosophy-text em { font-style: italic; color: var(--clay); }
-
-/* ——— IMAGE STRIP ——— */
-.image-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  height: 320px;
-}
-
-.image-strip img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.image-strip img:hover { transform: scale(1.04); }
-
-/* ——— WINEMAKER ——— */
-.winemaker {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 85vh;
-  background: var(--linen);
-}
-
-.winemaker-photo { position: relative; overflow: hidden; }
-.winemaker-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
-
-.winemaker-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 60px;
-}
-
-.winemaker-text .section-tag { color: var(--olive); }
-
-.winemaker-name {
-  font-family: 'Cormorant Garamond', serif;
+.temp-guide .section-tag {
+  font-size: 9px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+  text-align: center;
+  margin-bottom: 50px;
   font-weight: 400;
-  font-size: clamp(34px, 4vw, 50px);
-  color: var(--ink);
-  margin-bottom: 8px;
 }
 
-.winemaker-title {
-  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--terracotta); margin-bottom: 36px; font-weight: 500;
-}
-
-.winemaker-bio {
-  font-size: 14px; line-height: 1.9; color: var(--stone);
-  font-weight: 300; max-width: 420px; margin-bottom: 40px;
-}
-
-.regions-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-
-.region-pill {
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--olive-dark); border: 1px solid rgba(75,89,64,0.25);
-  padding: 7px 16px; font-weight: 400; transition: all 0.3s;
-}
-
-.region-pill:hover { background: var(--olive); color: var(--cream); border-color: var(--olive); }
-
-/* ——— WINE SECTIONS ——— */
-.wine-hero {
-  min-height: 100vh;
+.temp-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-}
-
-.wine-hero.reverse { direction: rtl; }
-.wine-hero.reverse > * { direction: ltr; }
-
-.wine-visual {
-  position: relative;
-  display: flex;
+  grid-template-columns: 1fr 80px 1fr;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-.wine-visual.bg-terracotta { background: #e8d5c4; }
-.wine-visual.bg-olive { background: #d6ddd0; }
-.wine-visual.bg-sand { background: #e6ddd0; }
+.temp-row:last-child { border-bottom: none; }
 
-.wine-bottle-img {
-  max-height: 70vh; max-width: 55%; object-fit: contain;
-  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));
-  transition: transform 0.6s ease;
-}
-
-.wine-visual:hover .wine-bottle-img { transform: translateY(-8px); }
-
-.wine-logo-overlay {
-  position: absolute; bottom: 30px; left: 50%;
-  transform: translateX(-50%); height: 36px; opacity: 0.45;
-  filter: brightness(0);
-}
-
-.wine-info {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 80px 56px; background: var(--warm-white);
-}
-
-.wine-info .wine-tag {
-  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--terracotta); font-weight: 500; margin-bottom: 20px;
-}
-
-.wine-info h2 {
-  font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: clamp(36px, 4.5vw, 56px); color: var(--ink); margin-bottom: 8px;
-}
-
-.wine-info .wine-subtitle {
-  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--stone); margin-bottom: 28px; font-weight: 400;
-}
-
-.wine-info .wine-description {
-  font-size: 14px; line-height: 1.85; color: #6b655d;
-  font-weight: 300; max-width: 420px; margin-bottom: 32px;
-}
-
-.wine-specs {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 18px; margin-bottom: 32px; padding-bottom: 28px;
-  border-bottom: 1px solid var(--sand);
-}
-
-.wine-spec label {
-  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-  color: var(--stone); display: block; margin-bottom: 5px; font-weight: 500;
-}
-
-.wine-spec span { font-size: 13px; color: var(--ink); font-weight: 400; line-height: 1.5; }
-
-.wine-pricing {
-  background: rgba(196,120,90,0.06);
-  border-left: 2px solid var(--terracotta);
-  padding: 24px 28px;
-}
-
-.wine-pricing h4 {
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--terracotta); margin-bottom: 16px; font-weight: 600;
-}
-
-.price-row {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 9px 0; border-bottom: 1px solid rgba(196,120,90,0.1); font-size: 13px;
-}
-
-.price-row:last-child { border-bottom: none; }
-.price-row .plabel { color: var(--stone); font-weight: 400; font-size: 12px; }
-.price-row .pvalue { font-weight: 600; font-size: 14px; color: var(--ink); }
-.price-row .pvalue.accent { color: var(--terracotta-deep); }
-.price-row .pvalue.struck { text-decoration: line-through; color: var(--stone); font-weight: 400; }
-
-/* ——— PHOTO BREAKS ——— */
-.photo-break { position: relative; height: 55vh; overflow: hidden; }
-.photo-break img { width: 100%; height: 100%; object-fit: cover; }
-
-.photo-break-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(44,38,32,0) 40%, rgba(44,38,32,0.4) 100%);
-}
-
-.photo-break-text {
-  position: absolute; bottom: 50px; left: 50px; z-index: 2; color: var(--cream);
-}
-
-.photo-break-text h3 {
+.temp-wine {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 300; font-size: clamp(26px, 3vw, 38px); font-style: italic;
+  font-size: 20px;
+  color: var(--cream);
+  font-weight: 400;
+  text-align: right;
+  padding-right: 28px;
 }
 
-.dual-photo { display: grid; grid-template-columns: 1fr 1fr; height: 50vh; }
-.dual-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
-
-/* ——— INCENTIVES ——— */
-.incentives {
-  padding: 100px 40px; background: var(--ink);
-  text-align: center; position: relative;
+.temp-wine small {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-top: 4px;
+  font-weight: 400;
 }
 
-.incentives::before {
-  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(to right, transparent, var(--clay), transparent);
+.temp-value {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--gold);
 }
 
-.incentives .section-tag { color: var(--clay); margin-bottom: 60px; }
-
-.incentive-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 28px; max-width: 960px; margin: 0 auto;
+.temp-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--stone);
+  font-weight: 300;
+  padding-left: 28px;
 }
-
-.incentive-card {
-  border: 1px solid rgba(201,169,110,0.15);
-  padding: 40px 28px; text-align: left; transition: border-color 0.4s;
-}
-
-.incentive-card:hover { border-color: var(--gold); }
-
-.incentive-card h4 {
-  font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: 24px; color: var(--clay); margin-bottom: 16px;
-}
-
-.incentive-card p {
-  font-size: 13px; line-height: 1.75; color: var(--stone);
-  font-weight: 300; margin-bottom: 16px;
-}
-
-.incentive-card .highlight { display: block; font-size: 14px; color: var(--cream); font-weight: 500; }
-
-/* ——— HORIZON ——— */
-.horizon { padding: 100px 40px; background: var(--linen); text-align: center; }
-.horizon .section-tag { color: var(--olive); margin-bottom: 50px; }
-
-.horizon-steps {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 32px; max-width: 900px; margin: 0 auto;
-}
-
-.horizon-step { text-align: left; padding: 0 16px; border-left: 2px solid var(--sand); }
-
-.horizon-step h4 {
-  font-family: 'Cormorant Garamond', serif; font-size: 20px;
-  font-weight: 400; color: var(--ink); margin-bottom: 10px;
-}
-
-.horizon-step p { font-size: 13px; line-height: 1.75; color: var(--stone); font-weight: 300; }
 
 /* ——— CLOSING ——— */
 .closing {
-  min-height: 70vh; display: flex; align-items: center;
-  justify-content: center; flex-direction: column; text-align: center;
-  padding: 80px 40px; background: var(--ink); position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 40px;
+  background: var(--cream);
+  position: relative;
 }
 
-.closing::before {
-  content: ''; position: absolute; inset: 0;
-  background: url('https://res.cloudinary.com/dxhef6dju/image/upload/v1774016638/58_sosdse.jpg') center/cover;
-  opacity: 0.08;
+.closing-inner {
+  max-width: 580px;
 }
-
-.closing-inner { position: relative; z-index: 1; }
 
 .closing-quote {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300;
-  font-size: clamp(24px, 3.5vw, 40px); line-height: 1.55;
-  color: var(--cream); max-width: 600px; margin-bottom: 50px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(24px, 3.5vw, 38px);
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 40px;
 }
 
-.closing-quote em { font-style: italic; color: var(--clay); }
+.closing-quote em {
+  font-style: italic;
+  color: var(--burgundy);
+}
 
 .closing-line {
-  width: 1px; height: 50px;
-  background: linear-gradient(to bottom, transparent, var(--clay), transparent);
-  margin: 0 auto 30px;
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, var(--sand), transparent);
+  margin: 0 auto 24px;
 }
 
-.closing-contact { font-size: 12px; letter-spacing: 3px; color: var(--stone); font-weight: 300; }
-
-.closing-contact a {
-  color: var(--clay); text-decoration: none;
-  border-bottom: 1px solid rgba(212,168,130,0.3); padding-bottom: 2px;
+.closing-sig {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--stone);
+  margin-bottom: 6px;
 }
 
-/* ——— SCROLL REVEAL ——— */
+.closing-name {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.closing-role {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--stone);
+  margin-top: 3px;
+  font-weight: 300;
+}
+
+/* ——— FOOTER ——— */
+.footer {
+  padding: 40px;
+  text-align: center;
+  background: var(--ink);
+}
+
+.footer p {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ——— REVEAL ——— */
 .reveal {
-  opacity: 0; transform: translateY(28px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* ——— RESPONSIVE ——— */
-@media (max-width: 900px) {
-  .venue-intro, .winemaker, .wine-hero, .dual-photo { grid-template-columns: 1fr; }
-  .wine-hero.reverse { direction: ltr; }
-  .venue-intro-images { height: 50vh; grid-template-rows: 1fr; }
-  .venue-intro-images img:nth-child(2) { display: none; }
-  .venue-intro-text, .winemaker-text, .wine-info { padding: 50px 28px; }
-  .winemaker-photo { height: 60vh; }
-  .wine-visual { height: 65vh; }
-  .image-strip { grid-template-columns: 1fr 1fr; height: auto; }
-  .image-strip img { height: 200px; }
-  .incentive-grid, .horizon-steps { grid-template-columns: 1fr; }
-  .photo-break { height: 40vh; }
-  .cover-bg { grid-template-columns: 1fr; }
-  .cover-bg img:nth-child(2) { display: none; }
-  .lang-selector { top: 16px; right: 16px; }
+@media (max-width: 960px) {
+  .wine-card, .wine-card.reverse {
+    grid-template-columns: 1fr;
+  }
+  .wine-card-visual {
+    min-height: 55vh;
+  }
+  .wine-card-info {
+    padding: 50px 28px;
+  }
+  .wine-card-info::before { display: none; }
+  .ritual-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+  .temp-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 8px;
+  }
+  .temp-wine { text-align: center; padding: 0; }
+  .temp-note { text-align: center; padding: 0; }
+  .tasting-wheel {
+    flex-wrap: wrap;
+  }
+  .tw-segment {
+    flex: 1 1 45%;
+    border-bottom: 1px solid var(--sand);
+  }
+  .cover-meta { flex-direction: column; gap: 12px; }
+  .cover-meta .dot { display: none; }
+}
+
+@media (max-width: 600px) {
+  .ritual-grid { grid-template-columns: 1fr; }
+  .specs-grid { grid-template-columns: 1fr; }
+  .wine-number { font-size: 80px; }
 }
 </style>
 </head>
 <body>
 
-<!-- ——— LANGUAGE SELECTOR ——— -->
-<div class="lang-selector">
-  <button class="lang-btn" id="langBtn" onclick="toggleDropdown()">
-    <span id="currentLangFlag">🇪🇸</span>
-    <span id="currentLangLabel">ESP</span>
-    <svg viewBox="0 0 12 8"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-  </button>
-  <div class="lang-dropdown" id="langDropdown">
-    <button class="lang-option active" data-lang="es" onclick="setLang('es')"><span class="flag">🇪🇸</span> Español</button>
-    <button class="lang-option" data-lang="en" onclick="setLang('en')"><span class="flag">🇬🇧</span> English</button>
-    <button class="lang-option" data-lang="fr" onclick="setLang('fr')"><span class="flag">🇫🇷</span> Français</button>
-    <button class="lang-option" data-lang="de" onclick="setLang('de')"><span class="flag">🇩🇪</span> Deutsch</button>
-    <button class="lang-option" data-lang="it" onclick="setLang('it')"><span class="flag">🇮🇹</span> Italiano</button>
-  </div>
-</div>
+<div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- ==================== COVER ==================== -->
+<!-- ====== COVER ====== -->
 <section class="cover">
-  <div class="cover-bg">
-    <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017339/5_ry6xmg.png" alt="">
-    <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016638/56_ys4mhm.jpg" alt="">
-  </div>
-  <div class="cover-overlay"></div>
   <div class="cover-content">
-    <div class="cover-label" data-i18n="cover_label"></div>
-    <h1>A Curated Wine<br><em>Experience</em></h1>
-    <div class="cover-venue" data-i18n="cover_venue"></div>
-    <div class="cover-year">2 0 2 6</div>
+    <div class="cover-icon">
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24 4C24 4 14 16 14 28C14 33.5228 18.4772 38 24 38C29.5228 38 34 33.5228 34 28C34 16 24 4 24 4Z" stroke="#c9a96e" stroke-width="1.2" fill="none"/>
+        <line x1="24" y1="38" x2="24" y2="46" stroke="#c9a96e" stroke-width="1.2"/>
+        <line x1="18" y1="46" x2="30" y2="46" stroke="#c9a96e" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="cover-eyebrow">Guía de Cata Exclusiva</div>
+    <h1>El Arte de<br><em>Degustar</em></h1>
+    <div class="cover-sub">Tres vinos. Tres mundos. Una experiencia sensorial completa.</div>
+    <div class="cover-meta">
+      <span>Gran Folies Beach Club</span>
+      <div class="dot"></div>
+      <span>Mallorca</span>
+      <div class="dot"></div>
+      <span>Temporada 2026</span>
+    </div>
     <div class="cover-line"></div>
   </div>
 </section>
 
-<!-- ==================== VENUE INTRO ==================== -->
-<section class="venue-intro">
-  <div class="venue-intro-images">
-    <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017342/7_vbmwth.png" alt="">
-    <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017347/9_dkddpo.png" alt="">
-  </div>
-  <div class="venue-intro-text">
-    <div class="section-tag reveal" data-i18n="vision_tag"></div>
-    <h2 class="reveal" data-i18n="vision_title"></h2>
-    <p class="reveal" data-i18n="vision_text"></p>
-  </div>
+<!-- ====== INTRO ====== -->
+<section class="intro">
+  <div class="intro-tag reveal">Bienvenidos a la Cata</div>
+  <p class="reveal">
+    Esta guía no es un simple listado de notas.<br>
+    Es una <em>invitación a sentir</em>.<br><br>
+    Cada vino ha sido seleccionado para contar una historia —
+    desde la primera impresión visual hasta el final persistente
+    que queda grabado en la memoria.
+  </p>
+  <div class="intro-divider reveal"></div>
+  <p class="note reveal">
+    Tomad vuestro tiempo. El vino no tiene prisa.<br>
+    Observad, girad la copa, inhaled profundamente antes de beber.
+    Dejad que cada sorbo revele lo que tiene que decir.
+  </p>
 </section>
 
-<!-- ==================== PHILOSOPHY ==================== -->
-<section class="philosophy">
-  <div class="philosophy-inner">
-    <div class="section-tag reveal" data-i18n="intention_tag"></div>
-    <p class="philosophy-text reveal" data-i18n="intention_text"></p>
-  </div>
-</section>
-
-<!-- ==================== IMAGE STRIP ==================== -->
-<div class="image-strip">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016638/53_ewrjdj.jpg" alt="">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016637/52_l91yv2.jpg" alt="">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016637/51_gxqgqc.jpg" alt="">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016638/58_sosdse.jpg" alt="">
-</div>
-
-<!-- ==================== WINEMAKER ==================== -->
-<section class="winemaker">
-  <div class="winemaker-photo">
-    <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017350/10_qefomi.png" alt="">
-  </div>
-  <div class="winemaker-text">
-    <div class="section-tag reveal" data-i18n="winemaker_tag"></div>
-    <h2 class="winemaker-name reveal">Travis Braithwaite</h2>
-    <div class="winemaker-title reveal">Winemaker · Creative Director</div>
-    <p class="winemaker-bio reveal" data-i18n="winemaker_bio"></p>
-    <div class="regions-grid reveal">
-      <span class="region-pill">Napa Valley</span>
-      <span class="region-pill">Bordeaux</span>
-      <span class="region-pill">Dehesa del Carrizal</span>
-      <span class="region-pill">Stellenbosch</span>
-      <span class="region-pill">Valle de Uco</span>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== PANGEA ==================== -->
-<div class="photo-break">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016652/59_uttomj.jpg" alt="">
-  <div class="photo-break-overlay"></div>
-  <div class="photo-break-text">
-    <h3 class="reveal" data-i18n="selection_title"></h3>
-  </div>
-</div>
-
-<section class="wine-hero">
-  <div class="wine-visual bg-sand">
-    <img class="wine-bottle-img" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017354/12_ct79it.png" alt="">
-    <img class="wine-logo-overlay" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774019511/18_pjlny9.png" alt="">
-  </div>
-  <div class="wine-info">
-    <div class="wine-tag reveal" data-i18n="pangea_tag"></div>
-    <h2 class="reveal">Pangea</h2>
-    <div class="wine-subtitle reveal" data-i18n="pangea_subtitle"></div>
-    <p class="wine-description reveal" data-i18n="pangea_desc"></p>
-    <div class="wine-specs reveal">
-      <div class="wine-spec">
-        <label>Blend</label>
-        <span>Cabernet Sauvignon · Merlot · Petit Verdot · Cabernet Franc · Malbec</span>
+<!-- ====== RITUAL ====== -->
+<section class="ritual">
+  <div class="ritual-inner">
+    <div class="section-tag reveal">El Ritual de la Cata</div>
+    <div class="ritual-grid">
+      <div class="ritual-step reveal">
+        <div class="step-num">01</div>
+        <h4>Vista</h4>
+        <p>Inclinad la copa sobre fondo blanco. Observad el color, la intensidad, los reflejos. El borde revela la edad; el corazón, la concentración.</p>
       </div>
-      <div class="wine-spec">
-        <label data-i18n="label_origin"></label>
-        <span>Napa Valley · Bordeaux · España · Sudáfrica · Argentina</span>
+      <div class="ritual-step reveal">
+        <div class="step-num">02</div>
+        <h4>Nariz</h4>
+        <p>Primero en reposo: los aromas primarios. Luego girad y dejad que el vino respire. Segundo pase: la complejidad emerge. Fruta, tierra, especias, recuerdos.</p>
       </div>
-      <div class="wine-spec">
-        <label data-i18n="label_character"></label>
-        <span data-i18n="pangea_character"></span>
+      <div class="ritual-step reveal">
+        <div class="step-num">03</div>
+        <h4>Boca</h4>
+        <p>Un sorbo generoso. Dejad que cubra todo el paladar. Entrada, evolución, final. Buscad el equilibrio entre acidez, tanino, fruta y cuerpo.</p>
       </div>
-      <div class="wine-spec">
-        <label data-i18n="label_positioning"></label>
-        <span data-i18n="pangea_positioning"></span>
-      </div>
-    </div>
-    <div class="wine-pricing reveal">
-      <h4 data-i18n="pricing_title"></h4>
-      <div class="price-row">
-        <span class="plabel" data-i18n="pangea_p1_label"></span>
-        <span class="pvalue accent">390 €</span>
-      </div>
-      <div class="price-row">
-        <span class="plabel" data-i18n="pangea_p2_label"></span>
-        <span class="pvalue" data-i18n="pangea_p2_value"></span>
-      </div>
-      <div class="price-row">
-        <span class="plabel" data-i18n="label_staff_commission"></span>
-        <span class="pvalue" data-i18n="pangea_commission_value"></span>
-      </div>
-      <div class="price-row">
-        <span class="plabel">Rappel</span>
-        <span class="pvalue accent" data-i18n="rappel_value"></span>
+      <div class="ritual-step reveal">
+        <div class="step-num">04</div>
+        <h4>Final</h4>
+        <p>La persistencia del vino tras tragar. Contad los segundos. Los grandes vinos permanecen. Y cambian. Y os invitan a volver a la copa.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== NIP SLIP ==================== -->
-<div class="dual-photo">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017362/15_z09oim.png" alt="">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017359/14_hosbun.png" alt="">
-</div>
+<!-- ====== WINE 1 — PANGEA ====== -->
+<div class="wine-divider red"></div>
 
-<section class="wine-hero reverse">
-  <div class="wine-visual bg-terracotta">
-    <img class="wine-bottle-img" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017352/11_afwrmg.png" alt="">
-    <img class="wine-logo-overlay" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774019232/ChatGPT_Image_Mar_20_2026_at_04_05_14_PM_thf7z2.png" alt="">
-  </div>
-  <div class="wine-info">
-    <div class="wine-tag reveal" data-i18n="nipslip_tag"></div>
-    <h2 class="reveal">Nip Slip</h2>
-    <div class="wine-subtitle reveal" data-i18n="nipslip_subtitle"></div>
-    <p class="wine-description reveal" data-i18n="nipslip_desc"></p>
-    <div class="wine-specs reveal">
-      <div class="wine-spec">
-        <label>Blend</label>
-        <span>Shiraz · Cabernet Sauvignon · Mourvèdre</span>
-      </div>
-      <div class="wine-spec">
-        <label data-i18n="label_style"></label>
-        <span data-i18n="nipslip_style"></span>
-      </div>
-      <div class="wine-spec">
-        <label data-i18n="label_palate"></label>
-        <span data-i18n="nipslip_palate"></span>
-      </div>
-      <div class="wine-spec">
-        <label data-i18n="label_positioning"></label>
-        <span data-i18n="nipslip_positioning"></span>
-      </div>
+<section class="wine-section">
+  <div class="wine-card wine-1">
+    <div class="wine-card-visual bg-burgundy">
+      <div class="wine-number">01</div>
+      <img class="bottle-img" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017354/12_ct79it.png" alt="Pangea">
+      <div class="wine-type-badge">Tinto · Prestige</div>
     </div>
-    <div class="wine-pricing reveal">
-      <h4 data-i18n="pricing_title"></h4>
-      <div class="price-row">
-        <span class="plabel" data-i18n="nipslip_p1_label"></span>
-        <span class="pvalue struck">33,00 €</span>
-      </div>
-      <div class="price-row">
-        <span class="plabel" data-i18n="nipslip_p2_label"></span>
-        <span class="pvalue accent">31,50 €</span>
-      </div>
-      <div class="price-row">
-        <span class="plabel" data-i18n="label_staff_commission"></span>
-        <span class="pvalue" data-i18n="nipslip_commission_value"></span>
-      </div>
-      <div class="price-row">
-        <span class="plabel">Rappel</span>
-        <span class="pvalue accent" data-i18n="rappel_value"></span>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="wine-card-info">
+      <div class="wine-eyebrow reveal">Primer Vino · Blend Global</div>
+      <h2 class="reveal">Pangea</h2>
+      <div class="wine-subtitle reveal">Tinto de cinco países · Edición limitada</div>
 
-<!-- ==================== GRACE ==================== -->
-<div class="photo-break">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016638/55_joare6.jpg" alt="">
-  <div class="photo-break-overlay"></div>
-  <div class="photo-break-text">
-    <h3 class="reveal">Grace — V Collection</h3>
-  </div>
-</div>
+      <div class="tasting-wheel reveal">
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span class="tw-label">Vista</span>
+          <span class="tw-value">Rubí profundo con destellos granate. Lágrima densa, lenta y glicerínica.</span>
+        </div>
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C12 2 8 8 8 14c0 3 1.5 6 4 6s4-3 4-6c0-6-4-12-4-12z"/><path d="M6 18c-1 1-2 2-2 3h4"/><path d="M18 18c1 1 2 2 2 3h-4"/></svg></span>
+          <span class="tw-label">Nariz</span>
+          <span class="tw-value">Cassis, cedro, tabaco rubio, grafito, violeta marchita. Complejo y en capas.</span>
+        </div>
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2C5 8 4 11 4 14a8 8 0 0 0 16 0c0-3-1-6-3-12z"/><path d="M8 14c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg></span>
+          <span class="tw-label">Boca</span>
+          <span class="tw-value">Entrada envolvente. Taninos de seda con estructura. Final de +45 segundos.</span>
+        </div>
+      </div>
 
-<section class="wine-hero">
-  <div class="wine-visual bg-olive">
-    <img class="wine-bottle-img" src="https://res.cloudinary.com/dqje367sj/image/upload/v1774188366/5A878982-808A-4435-9701-F22D94FC6C56_hxpogn.png" alt="">
-    <img class="wine-logo-overlay" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774019514/19_leczs3.png" alt="">
-  </div>
-  <div class="wine-info">
-    <div class="wine-tag reveal" data-i18n="grace_tag"></div>
-    <h2 class="reveal">Grace</h2>
-    <div class="wine-subtitle reveal" data-i18n="grace_subtitle"></div>
-    <p class="wine-description reveal" data-i18n="grace_desc"></p>
-    <div class="wine-specs reveal">
-      <div class="wine-spec">
-        <label>Blend</label>
-        <span>Chenin Blanc 60% · Viognier 30% · Chardonnay 10%</span>
+      <div class="tasting-prose reveal">
+        <h4>Notas del Sommelier</h4>
+        <p>
+          Pangea es un vino que no se entiende con un solo sorbo. Es un <em>viaje</em>.
+          La primera nariz ofrece fruta negra madura y especias dulces; tras diez minutos
+          en copa, emergen notas de <em>grafito, cuero y tierra húmeda</em> que revelan
+          la complejidad de cinco terroirs unidos en un solo blend. En boca, la textura
+          es casi <em>tridimensional</em> — capas que se despliegan con paciencia. El final
+          es kilométrico, con un recuerdo mineral que invita al siguiente sorbo.
+        </p>
       </div>
-      <div class="wine-spec">
-        <label data-i18n="label_production"></label>
-        <span>2.000 bottles · 13% alc.</span>
+
+      <div class="specs-grid reveal">
+        <div class="spec-cell">
+          <label>Blend</label>
+          <span>Cabernet Sauvignon · Merlot · Petit Verdot · Cabernet Franc · Malbec</span>
+        </div>
+        <div class="spec-cell">
+          <label>Origen</label>
+          <span>Napa Valley · Bordeaux · España · Sudáfrica · Argentina</span>
+        </div>
+        <div class="spec-cell">
+          <label>Carácter</label>
+          <span>Complejo, fluido, capas que se revelan con elegancia</span>
+        </div>
+        <div class="spec-cell">
+          <label>Posicionamiento</label>
+          <span>Icono de carta — presencia y diferenciación absoluta</span>
+        </div>
       </div>
-      <div class="wine-spec">
-        <label data-i18n="label_profile"></label>
-        <span data-i18n="grace_profile"></span>
+
+      <div class="score-strip reveal">
+        <div class="score-circle"><span>97</span></div>
+        <div class="score-text">
+          <strong>Potencial de guarda: 15-20 años.</strong><br>
+          Vino de meditación. Reservar para mesas que buscan lo excepcional.
+          Servir en copa Bordeaux amplia a 17°C.
+        </div>
       </div>
-      <div class="wine-spec">
-        <label data-i18n="label_pairing"></label>
-        <span data-i18n="grace_pairing"></span>
-      </div>
-    </div>
-    <div class="wine-pricing reveal">
-      <h4 data-i18n="pricing_title"></h4>
-      <div class="price-row">
-        <span class="plabel" data-i18n="grace_p1_label"></span>
-        <span class="pvalue struck">31,50 €</span>
-      </div>
-      <div class="price-row">
-        <span class="plabel" data-i18n="grace_p2_label"></span>
-        <span class="pvalue accent">29,00 €</span>
-      </div>
-      <div class="price-row">
-        <span class="plabel" data-i18n="label_staff_commission"></span>
-        <span class="pvalue" data-i18n="grace_commission_value"></span>
-      </div>
-      <div class="price-row">
-        <span class="plabel">Rappel</span>
-        <span class="pvalue accent" data-i18n="rappel_value"></span>
+
+      <div class="pairing-strip reveal">
+        <h5>Maridaje Recomendado</h5>
+        <div class="pairing-tags">
+          <span class="pairing-tag">Chuletón madurado</span>
+          <span class="pairing-tag">Cordero asado</span>
+          <span class="pairing-tag">Quesos curados</span>
+          <span class="pairing-tag">Trufa negra</span>
+          <span class="pairing-tag">Caza menor</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== DUAL PHOTO ==================== -->
-<div class="dual-photo">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016638/57_n5rxvx.jpg" alt="">
-  <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017339/5_ry6xmg.png" alt="">
-</div>
+<!-- ====== WINE 2 — NIP SLIP ====== -->
+<div class="wine-divider white"></div>
 
-<!-- ==================== INCENTIVES ==================== -->
-<section class="incentives">
-  <div class="section-tag reveal" data-i18n="incentives_tag"></div>
-  <div class="incentive-grid">
-    <div class="incentive-card reveal">
-      <h4 data-i18n="inc1_title"></h4>
-      <p data-i18n="inc1_text"></p>
-      <span class="highlight" data-i18n="inc1_highlight"></span>
+<section class="wine-section">
+  <div class="wine-card wine-2 reverse">
+    <div class="wine-card-info">
+      <div class="wine-eyebrow reveal">Segundo Vino · Alta Rotación</div>
+      <h2 class="reveal">Nip Slip</h2>
+      <div class="wine-subtitle reveal">Tinto · Blend · Stellenbosch, Sudáfrica</div>
+
+      <div class="tasting-wheel reveal">
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span class="tw-label">Vista</span>
+          <span class="tw-value">Rubí intenso, juvenil, con bordes violáceos. Brillo vivo y atractivo.</span>
+        </div>
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C12 2 8 8 8 14c0 3 1.5 6 4 6s4-3 4-6c0-6-4-12-4-12z"/><path d="M6 18c-1 1-2 2-2 3h4"/><path d="M18 18c1 1 2 2 2 3h-4"/></svg></span>
+          <span class="tw-label">Nariz</span>
+          <span class="tw-value">Frutos rojos maduros, mora, pimienta negra, toque de vainilla y clavo.</span>
+        </div>
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2C5 8 4 11 4 14a8 8 0 0 0 16 0c0-3-1-6-3-12z"/><path d="M8 14c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg></span>
+          <span class="tw-label">Boca</span>
+          <span class="tw-value">Entrada sedosa, mid-palate jugoso y estructurado. Taninos pulidos. Final de +20s.</span>
+        </div>
+      </div>
+
+      <div class="tasting-prose reveal">
+        <h4>Notas del Sommelier</h4>
+        <p>
+          Nip Slip es <em>seducción inmediata</em>. Desde el primer momento en copa,
+          la fruta explosiva y el carácter especiado del Shiraz sudafricano
+          atrapan sin esfuerzo. No es un vino que pida análisis — es un vino que pide
+          <em>conversación, risas y repetir</em>. El blend con Cabernet aporta estructura
+          sin rigidez; el Mourvèdre suma profundidad terrosa. El resultado es un tinto
+          increíblemente <em>versátil</em>: funciona igual de bien al sol junto al mar
+          que en una mesa de noche con buena compañía.
+        </p>
+      </div>
+
+      <div class="specs-grid reveal">
+        <div class="spec-cell">
+          <label>Blend</label>
+          <span>Shiraz · Cabernet Sauvignon · Mourvèdre</span>
+        </div>
+        <div class="spec-cell">
+          <label>Estilo</label>
+          <span>Rubí profundo, fruta roja y negra, especias sutiles</span>
+        </div>
+        <div class="spec-cell">
+          <label>Paladar</label>
+          <span>Entrada sedosa, mid-palate estructurado, taninos pulidos</span>
+        </div>
+        <div class="spec-cell">
+          <label>Posicionamiento</label>
+          <span>Pilar de ventas — copa y botella en servicio diario</span>
+        </div>
+      </div>
+
+      <div class="score-strip reveal">
+        <div class="score-circle"><span>92</span></div>
+        <div class="score-text">
+          <strong>Listo para disfrutar ahora.</strong><br>
+          El gran todoterreno de la selección. Versátil, carismático y memorablemente
+          fácil de recomendar. Servir a 16°C.
+        </div>
+      </div>
+
+      <div class="pairing-strip reveal">
+        <h5>Maridaje Recomendado</h5>
+        <div class="pairing-tags">
+          <span class="pairing-tag">Hamburguesa gourmet</span>
+          <span class="pairing-tag">Pizza de trufa</span>
+          <span class="pairing-tag">Costillas BBQ</span>
+          <span class="pairing-tag">Pasta ragú</span>
+          <span class="pairing-tag">Embutidos ibéricos</span>
+        </div>
+      </div>
     </div>
-    <div class="incentive-card reveal">
-      <h4 data-i18n="inc2_title"></h4>
-      <p data-i18n="inc2_text"></p>
-      <span class="highlight" data-i18n="inc2_highlight"></span>
-    </div>
-    <div class="incentive-card reveal">
-      <h4 data-i18n="inc3_title"></h4>
-      <p data-i18n="inc3_text"></p>
-      <span class="highlight" data-i18n="inc3_highlight"></span>
+    <div class="wine-card-visual bg-ruby">
+      <div class="wine-number">02</div>
+      <img class="bottle-img" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017352/11_afwrmg.png" alt="Nip Slip">
+      <div class="wine-type-badge">Tinto · Volumen</div>
     </div>
   </div>
 </section>
 
-<!-- ==================== HORIZON ==================== -->
-<section class="horizon">
-  <div class="section-tag reveal" data-i18n="horizon_tag"></div>
-  <div class="horizon-steps">
-    <div class="horizon-step reveal">
-      <h4 data-i18n="short_title"></h4>
-      <p data-i18n="short_text"></p>
+<!-- ====== WINE 3 — GRACE ====== -->
+<div class="wine-divider red"></div>
+
+<section class="wine-section">
+  <div class="wine-card wine-3">
+    <div class="wine-card-visual bg-gold">
+      <div class="wine-number">03</div>
+      <img class="bottle-img" src="https://res.cloudinary.com/dqje367sj/image/upload/v1774188366/5A878982-808A-4435-9701-F22D94FC6C56_hxpogn.png" alt="Grace">
+      <div class="wine-type-badge">Blanco · Signature</div>
     </div>
-    <div class="horizon-step reveal">
-      <h4 data-i18n="mid_title"></h4>
-      <p data-i18n="mid_text"></p>
-    </div>
-    <div class="horizon-step reveal">
-      <h4 data-i18n="long_title"></h4>
-      <p data-i18n="long_text"></p>
+    <div class="wine-card-info">
+      <div class="wine-eyebrow reveal">Tercer Vino · V Collection</div>
+      <h2 class="reveal">Grace</h2>
+      <div class="wine-subtitle reveal">Blanco · Chenin Blanc · Viognier · Chardonnay</div>
+
+      <div class="tasting-wheel reveal">
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span class="tw-label">Vista</span>
+          <span class="tw-value">Dorado pálido con reflejos verdosos. Brillo cristalino, lágrima fina.</span>
+        </div>
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C12 2 8 8 8 14c0 3 1.5 6 4 6s4-3 4-6c0-6-4-12-4-12z"/><path d="M6 18c-1 1-2 2-2 3h4"/><path d="M18 18c1 1 2 2 2 3h-4"/></svg></span>
+          <span class="tw-label">Nariz</span>
+          <span class="tw-value">Melocotón blanco, pomelo, flor de azahar, vainilla sutil, notas de lías.</span>
+        </div>
+        <div class="tw-segment">
+          <span class="tw-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 2C5 8 4 11 4 14a8 8 0 0 0 16 0c0-3-1-6-3-12z"/><path d="M8 14c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg></span>
+          <span class="tw-label">Boca</span>
+          <span class="tw-value">Textura cremosa, acidez vibrante. Final largo con recuerdo mineral y cítrico.</span>
+        </div>
+      </div>
+
+      <div class="tasting-prose reveal">
+        <h4>Notas del Sommelier</h4>
+        <p>
+          Grace es un blanco que <em>desafía expectativas</em>. La primera impresión es
+          de frescura mediterránea — cítricos, fruta de hueso — pero la textura sobre
+          lías y el aporte del Viognier construyen un <em>mid-palate de una riqueza
+          inesperada</em>. Es un vino que evoluciona: los primeros 15 minutos son pura
+          fruta; la segunda copa revela <em>complejidad, profundidad y carácter</em>.
+          El Chenin Blanc sudafricano aporta la columna vertebral ácida que mantiene
+          todo en equilibrio perfecto. Un blanco con alma.
+        </p>
+      </div>
+
+      <div class="specs-grid reveal">
+        <div class="spec-cell">
+          <label>Blend</label>
+          <span>Chenin Blanc 60% · Viognier 30% · Chardonnay 10%</span>
+        </div>
+        <div class="spec-cell">
+          <label>Producción</label>
+          <span>2.000 botellas · 13% alc.</span>
+        </div>
+        <div class="spec-cell">
+          <label>Perfil</label>
+          <span>Fruta tropical, cítricos, melocotón, vainilla, carácter sobre lías</span>
+        </div>
+        <div class="spec-cell">
+          <label>Posicionamiento</label>
+          <span>Blanco signature — alta rotación con elegancia</span>
+        </div>
+      </div>
+
+      <div class="score-strip reveal">
+        <div class="score-circle"><span>94</span></div>
+        <div class="score-text">
+          <strong>Potencial de evolución: 3-5 años.</strong><br>
+          Blanco gastronómico de primer nivel. Copa ideal para aperitivo
+          y platos principales. Servir a 10-12°C en copa amplia.
+        </div>
+      </div>
+
+      <div class="pairing-strip reveal">
+        <h5>Maridaje Recomendado</h5>
+        <div class="pairing-tags">
+          <span class="pairing-tag">Marisco fresco</span>
+          <span class="pairing-tag">Moules frites</span>
+          <span class="pairing-tag">Pato confitado</span>
+          <span class="pairing-tag">Cocina asiática</span>
+          <span class="pairing-tag">Risotto de setas</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== CLOSING ==================== -->
+<!-- ====== TEMPERATURE GUIDE ====== -->
+<section class="temp-guide">
+  <div class="temp-inner">
+    <div class="section-tag reveal">Guía de Temperatura & Servicio</div>
+    <div class="temp-row reveal">
+      <div class="temp-wine">
+        Pangea
+        <small>Prestige Blend</small>
+      </div>
+      <div class="temp-value">17°</div>
+      <div class="temp-note">Copa Bordeaux amplia. Decantar 30-45 min. Servir con protocolo de etiqueta.</div>
+    </div>
+    <div class="temp-row reveal">
+      <div class="temp-wine">
+        Nip Slip
+        <small>Tinto Volumen</small>
+      </div>
+      <div class="temp-value">16°</div>
+      <div class="temp-note">Copa universal tinto. No requiere decantación. Servicio directo, ágil.</div>
+    </div>
+    <div class="temp-row reveal">
+      <div class="temp-wine">
+        Grace
+        <small>Blanco Signature</small>
+      </div>
+      <div class="temp-value">11°</div>
+      <div class="temp-note">Copa blanca amplia. Sacar de cubitera 5 min antes. Evitar sobreenfriar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SERVICE TIPS ====== -->
+<section class="service">
+  <div class="section-tag reveal">Consejos de Servicio</div>
+  <div class="service-grid">
+    <div class="service-card reveal">
+      <span class="sc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 2h8l-1 10a3 3 0 0 1-3 3 3 3 0 0 1-3-3L8 2z"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></span>
+      <h4>La Copa Correcta</h4>
+      <p>La copa no es decoración — amplifica o destruye el aroma. Pangea exige Bordeaux; Grace necesita amplitud para respirar. Nunca servir blanco en copa estrecha.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="sc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></span>
+      <h4>Temperatura Justa</h4>
+      <p>Un grado de más en un tinto reduce la percepción de fruta. Un grado de menos en un blanco esconde la complejidad. La precisión es elegancia.</p>
+    </div>
+    <div class="service-card reveal">
+      <span class="sc-icon"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+      <h4>El Momento</h4>
+      <p>Pangea es para la pausa reflexiva. Nip Slip, para la energía social. Grace, para ese instante en que el sol baja y la brisa llega. Cada vino tiene su momento.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CLOSING ====== -->
 <section class="closing">
   <div class="closing-inner">
-    <p class="closing-quote reveal" data-i18n="closing_quote"></p>
+    <p class="closing-quote reveal">
+      El mejor sommelier no es quien más sabe.<br>
+      Es quien mejor <em>escucha</em> —<br>
+      al vino y a quien lo bebe.
+    </p>
     <div class="closing-line reveal"></div>
-    <p class="closing-contact reveal"><a href="mailto:travis@vinea.com">travis@vinea.com</a></p>
+    <div class="closing-sig reveal">Con pasión,</div>
+    <div class="closing-name reveal">Travis Braithwaite</div>
+    <div class="closing-role reveal">Winemaker · Creative Director</div>
   </div>
 </section>
 
+<div class="footer">
+  <p>Gran Folies Beach Club · Mallorca · 2026</p>
+</div>
+
 <script>
-const T = {
-es: {
-  cover_label: "Propuesta Exclusiva de Vinos",
-  cover_venue: "Para Gran Folies Beach Club · Mallorca",
-  vision_tag: "La Visión",
-  vision_title: 'No es una carta de vinos.<br>Es un <em>punto de vista</em>.',
-  vision_text: "El vino en Gran Folies no es un accesorio. Es atmósfera. Es memoria. Es lenguaje de marca. Esta propuesta busca acompañar el ritmo, la audiencia y el posicionamiento internacional de vuestro espacio — adaptándose, refinándose y creciendo juntos.",
-  intention_tag: "La Intención",
-  intention_text: 'No buscamos colocar botellas.<br><br>Buscamos construir un <em>programa de vino con identidad</em> — un partner que entienda el pulso de Gran Folies.<br><br>No un proveedor.<br>Un <em>wine partner</em>.',
-  winemaker_tag: "El Winemaker",
-  winemaker_bio: "Premiado internacionalmente en múltiples continentes. Reconocido por dominar blends complejos de origen multicountry. Travis no trabaja por denominación — trabaja por armonía en copa. Esa filosofía define cada botella de esta propuesta.",
-  selection_title: "La Selección",
-  pangea_tag: "Prestige · Blend Global",
-  pangea_subtitle: "Tinto · 5 Países · Edición Limitada",
-  pangea_desc: "Un verdadero vino del mundo. Complejo pero fluido. Capas que se revelan sin esfuerzo. Pangea no está diseñado para volumen — está diseñado para presencia y prestigio. Su rol es elevar todo el programa de vino por asociación.",
-  label_origin: "Origen",
-  label_character: "Carácter",
-  pangea_character: "Complejo, fluido, capas que se revelan con elegancia",
-  label_positioning: "Posicionamiento",
-  pangea_positioning: "Icono de carta. Presencia y diferenciación",
-  pricing_title: "Condiciones Gran Folies",
-  pangea_p1_label: "Precio por botella",
-  pangea_p2_label: "Referencia",
-  pangea_p2_value: "50% del precio retail",
-  label_staff_commission: "Comisión personal",
-  pangea_commission_value: "5% sobre PVP",
-  rappel_value: "1 gratis cada 7",
-  nipslip_tag: "Volumen · Alta Rotación",
-  nipslip_subtitle: "Tinto · Blend · Stellenbosch",
-  nipslip_desc: "El vino con mayor flexibilidad comercial de la selección. Icónico, accesible y con personalidad. Ideal para activaciones, rotación alta y como pilar de ventas por copa o botella en servicio diario.",
-  label_style: "Estilo",
-  nipslip_style: "Rubí profundo, fruta roja y negra, especias sutiles",
-  label_palate: "Paladar",
-  nipslip_palate: "Entrada sedosa, mid-palate estructurado, taninos pulidos",
-  nipslip_positioning: "Pilar de ventas. Copa y botella",
-  nipslip_p1_label: "Precio coste referencia",
-  nipslip_p2_label: "Precio Gran Folies",
-  nipslip_commission_value: "6,00 € / botella",
-  grace_tag: "Signature White · V Collection",
-  grace_subtitle: "Blanco · Chenin Blanc · Viognier · Chardonnay",
-  grace_desc: "Un blanco con carácter que no se desvanece entre añadas. Aguanta. Evoluciona. Gana profundidad. Potencial excepcional como blanco de alta rotación y firma de la casa — venta en volumen significativo sin comprometer elegancia.",
-  label_production: "Producción",
-  label_profile: "Perfil",
-  grace_profile: "Fruta tropical, cítricos, melocotón, vainilla, carácter sobre lías",
-  label_pairing: "Maridaje",
-  grace_pairing: "Marisco, moules, pato, cocina asiática",
-  grace_p1_label: "Precio referencia",
-  grace_p2_label: "Precio Gran Folies",
-  grace_commission_value: "5,00 € / botella",
-  incentives_tag: "Incentivos & Flexibilidad",
-  inc1_title: "Comisión Directa",
-  inc1_text: "Cada botella vendida genera un incentivo directo para el personal de servicio. Motivación real que impulsa la recomendación activa.",
-  inc1_highlight: "5 € – 6 € por botella según referencia",
-  inc2_title: "Rappel por Volumen",
-  inc2_text: "Por cada siete botellas adquiridas, una botella adicional sin coste. Aplicable a las tres referencias de la selección.",
-  inc2_highlight: "1 gratis de cada 7 — todas las referencias",
-  inc3_title: "Activaciones",
-  inc3_text: "Catas privadas, formación profesional para el equipo, experiencias curadas y proyectos especiales diseñados a medida para Gran Folies.",
-  inc3_highlight: "Estructura abierta y adaptable",
-  horizon_tag: "Un Horizonte Compartido",
-  short_title: "Corto plazo",
-  short_text: "Introducir una presencia de vino coherente y refinada que se integre de forma natural en la experiencia Gran Folies.",
-  mid_title: "Medio plazo",
-  mid_text: "Consolidar la selección, optimizar rotación y ajustar la estrategia basándose en rendimiento real y respuesta del cliente.",
-  long_title: "Largo plazo",
-  long_text: "Construir una relación estable de wine partnership, desarrollar proyectos especiales y crecer juntos sobre una base de confianza mutua.",
-  closing_quote: 'No es una propuesta cerrada.<br>Es una <em>conversación abierta</em>.<br><br>Porque los mejores programas de vino<br>no se imponen.<br><em>Se construyen juntos.</em>'
-},
-en: {
-  cover_label: "Exclusive Wine Proposal",
-  cover_venue: "For Gran Folies Beach Club · Mallorca",
-  vision_tag: "The Vision",
-  vision_title: 'This is not a wine list.<br>It is a <em>point of view</em>.',
-  vision_text: "Wine at Gran Folies is not an accessory. It is atmosphere. It is memory. It is brand language. This proposal seeks to accompany the rhythm, the audience and the international positioning of your space — adapting, refining and growing together.",
-  intention_tag: "The Intention",
-  intention_text: 'We are not looking to place bottles.<br><br>We are looking to build a <em>wine program with identity</em> — a partner that understands the pulse of Gran Folies.<br><br>Not a supplier.<br>A <em>wine partner</em>.',
-  winemaker_tag: "The Winemaker",
-  winemaker_bio: "Internationally awarded across multiple continents. Renowned for mastering complex, multi-country blends. Travis does not work by denomination — he works by harmony in the glass. That philosophy defines every bottle within this proposal.",
-  selection_title: "The Selection",
-  pangea_tag: "Prestige · Global Blend",
-  pangea_subtitle: "Red · 5 Countries · Limited Edition",
-  pangea_desc: "A true wine of the world. Complex yet seamless. Layers that reveal themselves effortlessly. Pangea is not designed for volume — it is designed for presence and prestige. Its role is to elevate the entire wine program by association.",
-  label_origin: "Origin",
-  label_character: "Character",
-  pangea_character: "Complex, seamless, layers that reveal with elegance",
-  label_positioning: "Positioning",
-  pangea_positioning: "Icon of the list. Presence and differentiation",
-  pricing_title: "Gran Folies Terms",
-  pangea_p1_label: "Price per bottle",
-  pangea_p2_label: "Reference",
-  pangea_p2_value: "50% of retail price",
-  label_staff_commission: "Staff commission",
-  pangea_commission_value: "5% on menu price",
-  rappel_value: "1 free every 7",
-  nipslip_tag: "Volume · High Rotation",
-  nipslip_subtitle: "Red · Blend · Stellenbosch",
-  nipslip_desc: "The wine with the greatest commercial flexibility in the selection. Iconic, accessible and full of personality. Ideal for activations, high rotation and as a daily sales pillar by the glass or bottle.",
-  label_style: "Style",
-  nipslip_style: "Deep ruby, red and black fruit, subtle spice",
-  label_palate: "Palate",
-  nipslip_palate: "Silky entry, structured mid-palate, polished tannins",
-  nipslip_positioning: "Sales pillar. Glass and bottle",
-  nipslip_p1_label: "Reference cost price",
-  nipslip_p2_label: "Gran Folies price",
-  nipslip_commission_value: "€6.00 / bottle",
-  grace_tag: "Signature White · V Collection",
-  grace_subtitle: "White · Chenin Blanc · Viognier · Chardonnay",
-  grace_desc: "A white wine with character that does not fade between vintages. It holds. It evolves. It gains depth. Exceptional potential as a high-rotation signature white — significant volume without ever compromising elegance.",
-  label_production: "Production",
-  label_profile: "Profile",
-  grace_profile: "Tropical fruit, citrus, peach, vanilla, lees character",
-  label_pairing: "Pairing",
-  grace_pairing: "Seafood, mussels, duck, Asian cuisine",
-  grace_p1_label: "Reference price",
-  grace_p2_label: "Gran Folies price",
-  grace_commission_value: "€5.00 / bottle",
-  incentives_tag: "Incentives & Flexibility",
-  inc1_title: "Direct Commission",
-  inc1_text: "Every bottle sold generates a direct incentive for service staff. Real motivation that drives active recommendations.",
-  inc1_highlight: "€5 – €6 per bottle depending on reference",
-  inc2_title: "Volume Rebate",
-  inc2_text: "For every seven bottles purchased, one additional bottle at no cost. Applicable to all three references in the selection.",
-  inc2_highlight: "1 free every 7 — all references",
-  inc3_title: "Activations",
-  inc3_text: "Private tastings, professional training for the team, curated experiences and bespoke special projects designed for Gran Folies.",
-  inc3_highlight: "Open and adaptable structure",
-  horizon_tag: "A Shared Horizon",
-  short_title: "Short term",
-  short_text: "Introduce a coherent, refined wine presence that integrates naturally into the Gran Folies experience.",
-  mid_title: "Mid term",
-  mid_text: "Consolidate the selection, optimise rotation and adjust strategy based on real performance and guest response.",
-  long_title: "Long term",
-  long_text: "Build a stable wine partnership, develop special projects and grow together through a relationship based on mutual trust.",
-  closing_quote: 'This is not a closed proposal.<br>It is an <em>open conversation</em>.<br><br>Because the strongest wine programs<br>are not imposed.<br><em>They are built together.</em>'
-},
-fr: {
-  cover_label: "Proposition Exclusive de Vins",
-  cover_venue: "Pour Gran Folies Beach Club · Majorque",
-  vision_tag: "La Vision",
-  vision_title: 'Ce n\'est pas une carte des vins.<br>C\'est un <em>point de vue</em>.',
-  vision_text: "Le vin au Gran Folies n'est pas un accessoire. C'est une atmosphère. C'est un souvenir. C'est un langage de marque. Cette proposition cherche à accompagner le rythme, le public et le positionnement international de votre espace — en s'adaptant, en se perfectionnant et en grandissant ensemble.",
-  intention_tag: "L'Intention",
-  intention_text: 'Nous ne cherchons pas à placer des bouteilles.<br><br>Nous cherchons à construire un <em>programme vinicole avec une identité</em> — un partenaire qui comprend le pouls de Gran Folies.<br><br>Pas un fournisseur.<br>Un <em>wine partner</em>.',
-  winemaker_tag: "Le Winemaker",
-  winemaker_bio: "Primé internationalement sur plusieurs continents. Reconnu pour sa maîtrise des assemblages complexes multi-pays. Travis ne travaille pas par appellation — il travaille par harmonie dans le verre. Cette philosophie définit chaque bouteille de cette proposition.",
-  selection_title: "La Sélection",
-  pangea_tag: "Prestige · Assemblage Mondial",
-  pangea_subtitle: "Rouge · 5 Pays · Édition Limitée",
-  pangea_desc: "Un véritable vin du monde. Complexe mais fluide. Des couches qui se révèlent sans effort. Pangea n'est pas conçu pour le volume — il est conçu pour la présence et le prestige. Son rôle est d'élever l'ensemble du programme vinicole par association.",
-  label_origin: "Origine",
-  label_character: "Caractère",
-  pangea_character: "Complexe, fluide, des couches qui se révèlent avec élégance",
-  label_positioning: "Positionnement",
-  pangea_positioning: "Icône de la carte. Présence et différenciation",
-  pricing_title: "Conditions Gran Folies",
-  pangea_p1_label: "Prix par bouteille",
-  pangea_p2_label: "Référence",
-  pangea_p2_value: "50% du prix public",
-  label_staff_commission: "Commission personnel",
-  pangea_commission_value: "5% sur le prix carte",
-  rappel_value: "1 offerte pour 7",
-  nipslip_tag: "Volume · Haute Rotation",
-  nipslip_subtitle: "Rouge · Assemblage · Stellenbosch",
-  nipslip_desc: "Le vin avec la plus grande flexibilité commerciale de la sélection. Iconique, accessible et plein de personnalité. Idéal pour les activations, la rotation élevée et comme pilier de vente au verre ou à la bouteille.",
-  label_style: "Style",
-  nipslip_style: "Rubis profond, fruits rouges et noirs, épices subtiles",
-  label_palate: "Palais",
-  nipslip_palate: "Entrée soyeuse, milieu structuré, tanins polis",
-  nipslip_positioning: "Pilier des ventes. Verre et bouteille",
-  nipslip_p1_label: "Prix coût référence",
-  nipslip_p2_label: "Prix Gran Folies",
-  nipslip_commission_value: "6,00 € / bouteille",
-  grace_tag: "Blanc Signature · V Collection",
-  grace_subtitle: "Blanc · Chenin Blanc · Viognier · Chardonnay",
-  grace_desc: "Un blanc de caractère qui ne s'efface pas entre les millésimes. Il tient. Il évolue. Il gagne en profondeur. Potentiel exceptionnel comme blanc signature à haute rotation — volume significatif sans jamais compromettre l'élégance.",
-  label_production: "Production",
-  label_profile: "Profil",
-  grace_profile: "Fruits tropicaux, agrumes, pêche, vanille, caractère sur lies",
-  label_pairing: "Accords",
-  grace_pairing: "Fruits de mer, moules, canard, cuisine asiatique",
-  grace_p1_label: "Prix référence",
-  grace_p2_label: "Prix Gran Folies",
-  grace_commission_value: "5,00 € / bouteille",
-  incentives_tag: "Incentives & Flexibilité",
-  inc1_title: "Commission Directe",
-  inc1_text: "Chaque bouteille vendue génère un incentive direct pour le personnel de service. Une motivation réelle qui encourage la recommandation active.",
-  inc1_highlight: "5 € – 6 € par bouteille selon la référence",
-  inc2_title: "Remise sur Volume",
-  inc2_text: "Pour chaque sept bouteilles achetées, une bouteille supplémentaire offerte. Applicable aux trois références de la sélection.",
-  inc2_highlight: "1 offerte pour 7 — toutes références",
-  inc3_title: "Activations",
-  inc3_text: "Dégustations privées, formation professionnelle pour l'équipe, expériences curatées et projets spéciaux sur mesure pour Gran Folies.",
-  inc3_highlight: "Structure ouverte et adaptable",
-  horizon_tag: "Un Horizon Partagé",
-  short_title: "Court terme",
-  short_text: "Introduire une présence vinicole cohérente et raffinée qui s'intègre naturellement dans l'expérience Gran Folies.",
-  mid_title: "Moyen terme",
-  mid_text: "Consolider la sélection, optimiser la rotation et ajuster la stratégie sur la base des performances réelles et de la réponse des clients.",
-  long_title: "Long terme",
-  long_text: "Construire un partenariat vinicole stable, développer des projets spéciaux et grandir ensemble grâce à une relation fondée sur la confiance mutuelle.",
-  closing_quote: 'Ce n\'est pas une proposition fermée.<br>C\'est une <em>conversation ouverte</em>.<br><br>Parce que les meilleurs programmes vinicoles<br>ne s\'imposent pas.<br><em>Ils se construisent ensemble.</em>'
-},
-de: {
-  cover_label: "Exklusiver Weinvorschlag",
-  cover_venue: "Für Gran Folies Beach Club · Mallorca",
-  vision_tag: "Die Vision",
-  vision_title: 'Das ist keine Weinkarte.<br>Es ist ein <em>Standpunkt</em>.',
-  vision_text: "Wein im Gran Folies ist kein Accessoire. Er ist Atmosphäre. Er ist Erinnerung. Er ist Markensprache. Dieser Vorschlag möchte den Rhythmus, das Publikum und die internationale Positionierung eures Raumes begleiten — sich anpassend, verfeinernd und gemeinsam wachsend.",
-  intention_tag: "Die Absicht",
-  intention_text: 'Wir wollen keine Flaschen platzieren.<br><br>Wir wollen ein <em>Weinprogramm mit Identität</em> aufbauen — ein Partner, der den Puls von Gran Folies versteht.<br><br>Kein Lieferant.<br>Ein <em>Wine Partner</em>.',
-  winemaker_tag: "Der Winemaker",
-  winemaker_bio: "International ausgezeichnet auf mehreren Kontinenten. Bekannt für die Meisterung komplexer, länderübergreifender Blends. Travis arbeitet nicht nach Denomination — er arbeitet nach Harmonie im Glas. Diese Philosophie bestimmt jede Flasche dieses Vorschlags.",
-  selection_title: "Die Auswahl",
-  pangea_tag: "Prestige · Globaler Blend",
-  pangea_subtitle: "Rotwein · 5 Länder · Limitierte Edition",
-  pangea_desc: "Ein wahrer Wein der Welt. Komplex aber fließend. Schichten, die sich mühelos enthüllen. Pangea ist nicht für Volumen konzipiert — er ist für Präsenz und Prestige konzipiert. Seine Rolle ist es, das gesamte Weinprogramm durch Assoziation zu erheben.",
-  label_origin: "Herkunft",
-  label_character: "Charakter",
-  pangea_character: "Komplex, fließend, Schichten die sich elegant enthüllen",
-  label_positioning: "Positionierung",
-  pangea_positioning: "Ikone der Karte. Präsenz und Differenzierung",
-  pricing_title: "Konditionen Gran Folies",
-  pangea_p1_label: "Preis pro Flasche",
-  pangea_p2_label: "Referenz",
-  pangea_p2_value: "50% des Einzelhandelspreises",
-  label_staff_commission: "Provision Personal",
-  pangea_commission_value: "5% auf Kartenpreis",
-  rappel_value: "1 gratis pro 7",
-  nipslip_tag: "Volumen · Hohe Rotation",
-  nipslip_subtitle: "Rotwein · Blend · Stellenbosch",
-  nipslip_desc: "Der Wein mit der größten kommerziellen Flexibilität der Auswahl. Ikonisch, zugänglich und voller Persönlichkeit. Ideal für Aktivierungen, hohe Rotation und als tägliche Verkaufssäule glas- oder flaschenweise.",
-  label_style: "Stil",
-  nipslip_style: "Tiefes Rubinrot, rote und schwarze Früchte, dezente Gewürze",
-  label_palate: "Gaumen",
-  nipslip_palate: "Seidiger Einstieg, strukturierte Mitte, polierte Tannine",
-  nipslip_positioning: "Verkaufssäule. Glas und Flasche",
-  nipslip_p1_label: "Referenz-Einkaufspreis",
-  nipslip_p2_label: "Preis Gran Folies",
-  nipslip_commission_value: "6,00 € / Flasche",
-  grace_tag: "Signature White · V Collection",
-  grace_subtitle: "Weißwein · Chenin Blanc · Viognier · Chardonnay",
-  grace_desc: "Ein Weißwein mit Charakter, der zwischen den Jahrgängen nicht verblasst. Er hält. Er entwickelt sich. Er gewinnt an Tiefe. Außergewöhnliches Potenzial als hochrotierender Signatur-Weißwein — signifikantes Volumen ohne je an Eleganz einzubüßen.",
-  label_production: "Produktion",
-  label_profile: "Profil",
-  grace_profile: "Tropische Früchte, Zitrus, Pfirsich, Vanille, Hefecharakter",
-  label_pairing: "Empfehlung",
-  grace_pairing: "Meeresfrüchte, Muscheln, Ente, asiatische Küche",
-  grace_p1_label: "Referenzpreis",
-  grace_p2_label: "Preis Gran Folies",
-  grace_commission_value: "5,00 € / Flasche",
-  incentives_tag: "Anreize & Flexibilität",
-  inc1_title: "Direkte Provision",
-  inc1_text: "Jede verkaufte Flasche generiert einen direkten Anreiz für das Servicepersonal. Echte Motivation, die aktive Empfehlungen fördert.",
-  inc1_highlight: "5 € – 6 € pro Flasche je nach Referenz",
-  inc2_title: "Mengenrabatt",
-  inc2_text: "Für je sieben gekaufte Flaschen eine zusätzliche Flasche kostenlos. Gilt für alle drei Referenzen der Auswahl.",
-  inc2_highlight: "1 gratis pro 7 — alle Referenzen",
-  inc3_title: "Aktivierungen",
-  inc3_text: "Private Verkostungen, professionelle Schulungen für das Team, kuratierte Erlebnisse und maßgeschneiderte Sonderprojekte für Gran Folies.",
-  inc3_highlight: "Offene und anpassbare Struktur",
-  horizon_tag: "Ein Gemeinsamer Horizont",
-  short_title: "Kurzfristig",
-  short_text: "Eine kohärente, raffinierte Weinpräsenz einführen, die sich natürlich in das Gran Folies Erlebnis integriert.",
-  mid_title: "Mittelfristig",
-  mid_text: "Die Auswahl konsolidieren, Rotation optimieren und die Strategie anhand realer Leistung und Gästefeedback anpassen.",
-  long_title: "Langfristig",
-  long_text: "Eine stabile Weinpartnerschaft aufbauen, Sonderprojekte entwickeln und gemeinsam wachsen durch eine Beziehung auf Basis gegenseitigen Vertrauens.",
-  closing_quote: 'Das ist kein abgeschlossener Vorschlag.<br>Es ist ein <em>offenes Gespräch</em>.<br><br>Denn die besten Weinprogramme<br>werden nicht auferlegt.<br><em>Sie werden gemeinsam aufgebaut.</em>'
-},
-it: {
-  cover_label: "Proposta Esclusiva di Vini",
-  cover_venue: "Per Gran Folies Beach Club · Maiorca",
-  vision_tag: "La Visione",
-  vision_title: 'Questa non è una carta dei vini.<br>È un <em>punto di vista</em>.',
-  vision_text: "Il vino al Gran Folies non è un accessorio. È atmosfera. È memoria. È linguaggio di marca. Questa proposta cerca di accompagnare il ritmo, il pubblico e il posizionamento internazionale del vostro spazio — adattandosi, perfezionandosi e crescendo insieme.",
-  intention_tag: "L'Intenzione",
-  intention_text: 'Non cerchiamo di piazzare bottiglie.<br><br>Cerchiamo di costruire un <em>programma vinicolo con identità</em> — un partner che comprende il polso di Gran Folies.<br><br>Non un fornitore.<br>Un <em>wine partner</em>.',
-  winemaker_tag: "Il Winemaker",
-  winemaker_bio: "Premiato a livello internazionale in più continenti. Rinomato per la padronanza di blend complessi multi-paese. Travis non lavora per denominazione — lavora per armonia nel bicchiere. Questa filosofia definisce ogni bottiglia di questa proposta.",
-  selection_title: "La Selezione",
-  pangea_tag: "Prestige · Blend Globale",
-  pangea_subtitle: "Rosso · 5 Paesi · Edizione Limitata",
-  pangea_desc: "Un vero vino del mondo. Complesso ma fluido. Strati che si rivelano senza sforzo. Pangea non è progettato per il volume — è progettato per la presenza e il prestigio. Il suo ruolo è elevare l'intero programma vinicolo per associazione.",
-  label_origin: "Origine",
-  label_character: "Carattere",
-  pangea_character: "Complesso, fluido, strati che si rivelano con eleganza",
-  label_positioning: "Posizionamento",
-  pangea_positioning: "Icona della carta. Presenza e differenziazione",
-  pricing_title: "Condizioni Gran Folies",
-  pangea_p1_label: "Prezzo per bottiglia",
-  pangea_p2_label: "Riferimento",
-  pangea_p2_value: "50% del prezzo retail",
-  label_staff_commission: "Commissione personale",
-  pangea_commission_value: "5% sul prezzo in carta",
-  rappel_value: "1 omaggio ogni 7",
-  nipslip_tag: "Volume · Alta Rotazione",
-  nipslip_subtitle: "Rosso · Blend · Stellenbosch",
-  nipslip_desc: "Il vino con la maggiore flessibilità commerciale della selezione. Iconico, accessibile e pieno di personalità. Ideale per attivazioni, alta rotazione e come pilastro di vendita al calice o in bottiglia.",
-  label_style: "Stile",
-  nipslip_style: "Rubino profondo, frutti rossi e neri, spezie sottili",
-  label_palate: "Palato",
-  nipslip_palate: "Ingresso setoso, centro strutturato, tannini levigati",
-  nipslip_positioning: "Pilastro delle vendite. Calice e bottiglia",
-  nipslip_p1_label: "Prezzo costo riferimento",
-  nipslip_p2_label: "Prezzo Gran Folies",
-  nipslip_commission_value: "6,00 € / bottiglia",
-  grace_tag: "Bianco Signature · V Collection",
-  grace_subtitle: "Bianco · Chenin Blanc · Viognier · Chardonnay",
-  grace_desc: "Un bianco di carattere che non svanisce tra le annate. Regge. Evolve. Acquista profondità. Potenziale eccezionale come bianco signature ad alta rotazione — volume significativo senza mai compromettere l'eleganza.",
-  label_production: "Produzione",
-  label_profile: "Profilo",
-  grace_profile: "Frutta tropicale, agrumi, pesca, vaniglia, carattere sui lieviti",
-  label_pairing: "Abbinamenti",
-  grace_pairing: "Frutti di mare, cozze, anatra, cucina asiatica",
-  grace_p1_label: "Prezzo riferimento",
-  grace_p2_label: "Prezzo Gran Folies",
-  grace_commission_value: "5,00 € / bottiglia",
-  incentives_tag: "Incentivi & Flessibilità",
-  inc1_title: "Commissione Diretta",
-  inc1_text: "Ogni bottiglia venduta genera un incentivo diretto per il personale di servizio. Motivazione reale che stimola la raccomandazione attiva.",
-  inc1_highlight: "5 € – 6 € per bottiglia secondo riferimento",
-  inc2_title: "Sconto Volume",
-  inc2_text: "Per ogni sette bottiglie acquistate, una bottiglia aggiuntiva senza costo. Applicabile a tutti e tre i riferimenti della selezione.",
-  inc2_highlight: "1 omaggio ogni 7 — tutti i riferimenti",
-  inc3_title: "Attivazioni",
-  inc3_text: "Degustazioni private, formazione professionale per il team, esperienze curate e progetti speciali su misura per Gran Folies.",
-  inc3_highlight: "Struttura aperta e adattabile",
-  horizon_tag: "Un Orizzonte Condiviso",
-  short_title: "Breve termine",
-  short_text: "Introdurre una presenza vinicola coerente e raffinata che si integri naturalmente nell'esperienza Gran Folies.",
-  mid_title: "Medio termine",
-  mid_text: "Consolidare la selezione, ottimizzare la rotazione e adattare la strategia in base alle performance reali e alla risposta degli ospiti.",
-  long_title: "Lungo termine",
-  long_text: "Costruire una partnership vinicola stabile, sviluppare progetti speciali e crescere insieme attraverso un rapporto basato sulla fiducia reciproca.",
-  closing_quote: 'Questa non è una proposta chiusa.<br>È una <em>conversazione aperta</em>.<br><br>Perché i migliori programmi vinicoli<br>non si impongono.<br><em>Si costruiscono insieme.</em>'
-}
-};
-
-const langMeta = {
-  es: { flag: "🇪🇸", label: "ESP" },
-  en: { flag: "🇬🇧", label: "ENG" },
-  fr: { flag: "🇫🇷", label: "FRA" },
-  de: { flag: "🇩🇪", label: "DEU" },
-  it: { flag: "🇮🇹", label: "ITA" }
-};
-
-let currentLang = 'es';
-
-function toggleDropdown() {
-  const dd = document.getElementById('langDropdown');
-  const btn = document.getElementById('langBtn');
-  dd.classList.toggle('show');
-  btn.classList.toggle('open');
-}
-
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.lang-selector')) {
-    document.getElementById('langDropdown').classList.remove('show');
-    document.getElementById('langBtn').classList.remove('open');
-  }
+// Scroll progress
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('scrollProgress').style.width = pct + '%';
 });
 
-function setLang(lang) {
-  currentLang = lang;
-  const strings = T[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (strings[key] !== undefined) {
-      el.innerHTML = strings[key];
-    }
+// Reveal on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('visible');
   });
-  document.querySelectorAll('.lang-option').forEach(o => {
-    o.classList.toggle('active', o.getAttribute('data-lang') === lang);
-  });
-  document.getElementById('currentLangFlag').textContent = langMeta[lang].flag;
-  document.getElementById('currentLangLabel').textContent = langMeta[lang].label;
-  document.getElementById('langDropdown').classList.remove('show');
-  document.getElementById('langBtn').classList.remove('open');
-}
+}, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
-// Init language
-setLang('es');
-
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
