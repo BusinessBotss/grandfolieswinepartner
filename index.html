@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guia de Cata — Gran Folies Beach Club 2026</title>
+<title>Guía de Cata — Francisco Morillo · GM Gran Folies</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -34,7 +34,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Grain overlay */
 body::after {
   content: '';
   position: fixed;
@@ -45,7 +44,6 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 
-/* ── SCROLL PROGRESS ── */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -54,95 +52,6 @@ body::after {
   background: linear-gradient(90deg, var(--burgundy), var(--gold), var(--olive));
   z-index: 10001;
   width: 0;
-}
-
-/* ── LANGUAGE SELECTOR ── */
-.lang-sel {
-  position: fixed;
-  top: 20px;
-  right: 24px;
-  z-index: 10000;
-}
-
-.lang-toggle {
-  background: rgba(30,26,22,0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(201,169,110,0.12);
-  color: var(--cream);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  padding: 10px 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: border-color 0.3s;
-}
-
-.lang-toggle:hover {
-  border-color: rgba(201,169,110,0.4);
-}
-
-.lang-toggle svg {
-  width: 10px;
-  height: 10px;
-  fill: none;
-  stroke: var(--gold-muted);
-  stroke-width: 1.8;
-  transition: transform 0.3s;
-}
-
-.lang-sel.open .lang-toggle svg {
-  transform: rotate(180deg);
-}
-
-.lang-menu {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  background: rgba(30,26,22,0.93);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(201,169,110,0.1);
-  min-width: 160px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-  transition: all 0.25s;
-}
-
-.lang-sel.open .lang-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.lang-menu button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  color: var(--stone);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 11px 18px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.lang-menu button:hover {
-  background: rgba(201,169,110,0.08);
-  color: var(--cream);
-}
-
-.lang-menu button.active {
-  color: var(--gold);
 }
 
 /* ── COVER ── */
@@ -167,13 +76,13 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.2;
+  opacity: 0.18;
 }
 
 .cover-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(30,26,22,0.88) 0%, rgba(30,26,22,0.5) 50%, rgba(30,26,22,0.85) 100%);
+  background: linear-gradient(135deg, rgba(30,26,22,0.9) 0%, rgba(30,26,22,0.52) 50%, rgba(30,26,22,0.88) 100%);
 }
 
 .cover-content {
@@ -181,6 +90,7 @@ body::after {
   z-index: 2;
   text-align: center;
   padding: 60px 40px;
+  max-width: 920px;
 }
 
 .cover-eyebrow {
@@ -188,7 +98,7 @@ body::after {
   letter-spacing: 10px;
   text-transform: uppercase;
   color: var(--gold-muted);
-  margin-bottom: 52px;
+  margin-bottom: 28px;
   font-weight: 300;
   opacity: 0;
   animation: fadeUp 1s 0.3s forwards;
@@ -197,7 +107,7 @@ body::after {
 .cover h1 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
-  font-size: clamp(52px, 10vw, 120px);
+  font-size: clamp(46px, 9vw, 104px);
   line-height: 1.02;
   color: var(--cream);
   letter-spacing: -3px;
@@ -212,24 +122,60 @@ body::after {
 
 .cover-sub {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2.8vw, 28px);
+  font-size: clamp(20px, 2.8vw, 30px);
   font-weight: 300;
   font-style: italic;
   color: var(--stone);
-  margin-top: 36px;
+  margin-top: 26px;
   letter-spacing: 1px;
   opacity: 0;
   animation: fadeUp 1s 0.9s forwards;
 }
 
+.cover-dedication {
+  margin: 42px auto 0;
+  max-width: 520px;
+  padding: 20px 24px;
+  border: 1px solid rgba(201,169,110,0.18);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  animation: fadeUp 1s 1.1s forwards;
+}
+
+.cover-dedication .small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 10px;
+}
+
+.cover-dedication .name {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  color: var(--cream);
+  margin-bottom: 6px;
+}
+
+.cover-dedication .role {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-muted);
+}
+
 .cover-meta {
-  margin-top: 72px;
+  margin-top: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 36px;
   opacity: 0;
-  animation: fadeUp 1s 1.2s forwards;
+  animation: fadeUp 1s 1.25s forwards;
 }
 
 .cover-meta span {
@@ -248,7 +194,7 @@ body::after {
 }
 
 .cover-scroll {
-  margin-top: 80px;
+  margin-top: 72px;
   opacity: 0;
   animation: fadeUp 1s 1.5s forwards;
 }
@@ -283,7 +229,7 @@ body::after {
 /* ── PHOTO BREAKS ── */
 .photo-full {
   position: relative;
-  height: 70vh;
+  height: 68vh;
   overflow: hidden;
 }
 
@@ -298,7 +244,7 @@ body::after {
 .photo-full-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(30,26,22,0.05) 0%, rgba(30,26,22,0.55) 100%);
+  background: linear-gradient(to bottom, rgba(30,26,22,0.08) 0%, rgba(30,26,22,0.58) 100%);
 }
 
 .photo-full-text {
@@ -320,18 +266,19 @@ body::after {
 
 .photo-full-text p {
   font-size: 15px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.62);
   margin-top: 12px;
   font-weight: 300;
   letter-spacing: 1px;
-  max-width: 500px;
+  max-width: 560px;
 }
 
 /* ── INTRO ── */
-.intro {
-  max-width: 780px;
+.intro,
+.creator {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 140px 40px;
+  padding: 130px 40px;
   text-align: center;
 }
 
@@ -339,103 +286,90 @@ body::after {
   font-size: 11px;
   letter-spacing: 7px;
   text-transform: uppercase;
-  margin-bottom: 44px;
+  margin-bottom: 38px;
   font-weight: 400;
+  color: var(--burgundy);
 }
 
-.intro .section-tag { color: var(--burgundy); }
-
-.intro-text {
+.intro-text,
+.creator-text {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
   font-size: clamp(22px, 3vw, 32px);
-  line-height: 1.75;
+  line-height: 1.72;
   color: var(--ink);
 }
 
-.intro-text em { font-style: italic; color: var(--burgundy); }
+.intro-text em,
+.creator-text em {
+  font-style: italic;
+  color: var(--burgundy);
+}
 
 .divider-line {
   width: 50px;
   height: 1px;
   background: var(--sand);
-  margin: 48px auto;
+  margin: 42px auto;
 }
 
-.intro-note {
+.intro-note,
+.creator-note {
   font-size: 16px;
   line-height: 1.85;
   color: var(--stone);
   font-weight: 300;
-  max-width: 560px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
-/* ── RITUAL ── */
-.ritual {
-  background: var(--ink);
-  padding: 120px 40px;
-  position: relative;
-  overflow: hidden;
+/* ── CREATOR BLOCK ── */
+.creator {
+  background: var(--parchment);
+  max-width: 100%;
 }
 
-.ritual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(107,45,62,0.06) 0%, transparent 70%);
-}
-
-.ritual-inner {
-  max-width: 1100px;
+.creator-inner {
+  max-width: 980px;
   margin: 0 auto;
-  position: relative;
-  z-index: 1;
 }
 
-.ritual .section-tag {
-  color: var(--gold-muted);
-  text-align: center;
+.creator-card {
+  background: var(--warm-white);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 56px 46px;
+  text-align: left;
+  box-shadow: 0 24px 60px rgba(30,26,22,0.05);
 }
 
-.ritual-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: rgba(201,169,110,0.08);
-}
-
-.ritual-step {
-  padding: 48px 32px;
-  background: var(--ink);
-  text-align: center;
-  transition: background 0.4s;
-}
-
-.ritual-step:hover { background: rgba(255,255,255,0.02); }
-
-.ritual-step .step-num {
+.creator-name {
   font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  color: var(--gold-muted);
-  opacity: 0.3;
-  margin-bottom: 20px;
+  font-size: clamp(34px, 4vw, 54px);
+  color: var(--ink);
+  margin-bottom: 8px;
   font-weight: 400;
+  letter-spacing: -1px;
 }
 
-.ritual-step h4 {
+.creator-role {
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+
+.creator-copy {
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
   font-size: 24px;
-  color: var(--cream);
-  margin-bottom: 16px;
+  line-height: 1.85;
+  color: #4a453e;
+  font-weight: 300;
 }
 
-.ritual-step p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--stone);
-  font-weight: 300;
+.creator-copy em {
+  font-style: italic;
+  color: var(--burgundy);
 }
 
 /* ── WINE CARDS ── */
@@ -459,14 +393,14 @@ body::after {
 }
 
 .wc-visual.bg-burgundy { background: linear-gradient(160deg, #2a1418 0%, #3d1f26 50%, #1e1a16 100%); }
-.wc-visual.bg-ruby { background: linear-gradient(160deg, #1e1620 0%, #2d1a24 50%, #1e1a16 100%); }
+.wc-visual.bg-ruby { background: linear-gradient(160deg, #1c1717 0%, #342022 50%, #1e1a16 100%); }
 .wc-visual.bg-gold { background: linear-gradient(160deg, #2a2618 0%, #342e1e 50%, #1e1a16 100%); }
 
 .wc-visual::before {
   content: '';
   position: absolute;
-  width: 400px;
-  height: 400px;
+  width: 420px;
+  height: 420px;
   border-radius: 50%;
   filter: blur(100px);
   opacity: 0.12;
@@ -509,7 +443,7 @@ body::after {
   font-size: 10px;
   letter-spacing: 6px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.28);
   font-weight: 300;
   z-index: 1;
   white-space: nowrap;
@@ -533,9 +467,9 @@ body::after {
   width: 3px;
 }
 
-.wine-1 .wc-info::before { background: linear-gradient(to bottom, transparent, var(--burgundy), transparent); }
-.wine-2 .wc-info::before { background: linear-gradient(to bottom, transparent, var(--ruby), transparent); }
-.wine-3 .wc-info::before { background: linear-gradient(to bottom, transparent, var(--gold), transparent); }
+.wine-1 .wc-info::before { background: linear-gradient(to bottom, transparent, var(--ruby), transparent); }
+.wine-2 .wc-info::before { background: linear-gradient(to bottom, transparent, var(--gold), transparent); }
+.wine-3 .wc-info::before { background: linear-gradient(to bottom, transparent, var(--olive), transparent); }
 
 .wine-eyebrow {
   font-size: 11px;
@@ -545,14 +479,14 @@ body::after {
   margin-bottom: 16px;
 }
 
-.wine-1 .wine-eyebrow { color: var(--burgundy); }
-.wine-2 .wine-eyebrow { color: var(--ruby); }
+.wine-1 .wine-eyebrow { color: var(--ruby); }
+.wine-2 .wine-eyebrow { color: var(--gold); }
 .wine-3 .wine-eyebrow { color: var(--olive); }
 
 .wc-info h2 {
   font-family: 'Playfair Display', serif;
   font-weight: 400;
-  font-size: clamp(44px, 5.5vw, 72px);
+  font-size: clamp(42px, 5.5vw, 72px);
   color: var(--ink);
   margin-bottom: 6px;
   letter-spacing: -2px;
@@ -563,15 +497,14 @@ body::after {
   font-size: 18px;
   font-style: italic;
   color: var(--stone);
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   letter-spacing: 1px;
 }
 
-/* Tasting wheel */
 .tasting-wheel {
   display: flex;
   gap: 0;
-  margin-bottom: 44px;
+  margin-bottom: 38px;
   border: 1px solid var(--sand);
   overflow: hidden;
 }
@@ -622,8 +555,7 @@ body::after {
   line-height: 1.5;
 }
 
-/* Tasting prose */
-.tasting-prose { margin-bottom: 40px; }
+.tasting-prose { margin-bottom: 34px; }
 
 .tasting-prose h4 {
   font-size: 10px;
@@ -642,19 +574,13 @@ body::after {
   font-weight: 300;
 }
 
-.tasting-prose p em {
-  font-style: italic;
-  color: var(--burgundy);
-}
-
-/* Specs */
 .specs-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1px;
   background: var(--sand);
   border: 1px solid var(--sand);
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .spec-cell {
@@ -679,7 +605,6 @@ body::after {
   line-height: 1.5;
 }
 
-/* Score */
 .score-strip {
   display: flex;
   align-items: center;
@@ -698,8 +623,8 @@ body::after {
   flex-shrink: 0;
 }
 
-.wine-1 .score-circle { border: 2px solid var(--burgundy); }
-.wine-2 .score-circle { border: 2px solid var(--ruby); }
+.wine-1 .score-circle { border: 2px solid var(--ruby); }
+.wine-2 .score-circle { border: 2px solid var(--gold); }
 .wine-3 .score-circle { border: 2px solid var(--olive); }
 
 .score-circle span {
@@ -708,8 +633,8 @@ body::after {
   font-weight: 500;
 }
 
-.wine-1 .score-circle span { color: var(--burgundy); }
-.wine-2 .score-circle span { color: var(--ruby); }
+.wine-1 .score-circle span { color: var(--ruby); }
+.wine-2 .score-circle span { color: var(--gold); }
 .wine-3 .score-circle span { color: var(--olive); }
 
 .score-text {
@@ -724,12 +649,16 @@ body::after {
   font-weight: 500;
 }
 
-/* Pairing */
 .pairing-strip {
-  margin-top: 32px;
+  margin-top: 28px;
   padding: 24px 28px;
   background: rgba(107,45,62,0.03);
   border-left: 2px solid var(--sand);
+}
+
+.wine-2 .pairing-strip {
+  background: rgba(184,150,90,0.05);
+  border-left-color: var(--gold);
 }
 
 .wine-3 .pairing-strip {
@@ -892,7 +821,7 @@ body::after {
 
 /* ── CLOSING ── */
 .closing {
-  min-height: 70vh;
+  min-height: 68vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -901,7 +830,7 @@ body::after {
   background: var(--cream);
 }
 
-.closing-inner { max-width: 640px; }
+.closing-inner { max-width: 720px; }
 
 .closing-quote {
   font-family: 'Playfair Display', serif;
@@ -909,7 +838,7 @@ body::after {
   font-size: clamp(28px, 4vw, 48px);
   line-height: 1.45;
   color: var(--ink);
-  margin-bottom: 48px;
+  margin-bottom: 42px;
 }
 
 .closing-quote em {
@@ -982,12 +911,11 @@ body::after {
 @media (max-width: 960px) {
   .wine-card,
   .wine-card.reverse { grid-template-columns: 1fr; }
-  .wine-card.reverse .wc-visual { order: 0; }
+  .wine-card.reverse .wc-visual,
   .wine-card.reverse .wc-info { order: 0; }
   .wc-visual { min-height: 60vh; }
   .wc-info { padding: 60px 32px; }
   .wc-info::before { display: none; }
-  .ritual-grid { grid-template-columns: 1fr 1fr; }
   .service-grid { grid-template-columns: 1fr; }
   .temp-row { grid-template-columns: 1fr; text-align: center; gap: 10px; }
   .temp-wine, .temp-note { text-align: center; padding: 0; }
@@ -999,11 +927,10 @@ body::after {
   .cover-bg img:nth-child(2) { display: none; }
   .photo-full { height: 50vh; }
   .photo-full-text { left: 32px; right: 32px; bottom: 40px; }
-  .lang-sel { top: 14px; right: 16px; }
+  .creator-card { padding: 40px 28px; }
 }
 
 @media (max-width: 600px) {
-  .ritual-grid { grid-template-columns: 1fr; }
   .specs-grid { grid-template-columns: 1fr; }
   .wine-number { font-size: 100px; }
   .bottle-img { max-width: 180px; }
@@ -1012,24 +939,7 @@ body::after {
 </head>
 <body>
 
-<!-- Scroll progress bar -->
 <div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- Language selector -->
-<div class="lang-sel" id="langSel">
-  <button class="lang-toggle" id="langToggle">
-    <span id="langLabel">ESP</span>
-    <svg viewBox="0 0 10 6"><path d="M1 1l4 4 4-4"/></svg>
-  </button>
-  <div class="lang-menu" id="langMenu">
-    <button class="active" data-lang="es">Espanol</button>
-    <button data-lang="en">English</button>
-    <button data-lang="fr">Francais</button>
-    <button data-lang="de">Deutsch</button>
-    <button data-lang="it">Italiano</button>
-    <button data-lang="ca">Mallorqui</button>
-  </div>
-</div>
 
 <!-- ══════ COVER ══════ -->
 <section class="cover">
@@ -1039,9 +949,16 @@ body::after {
   </div>
   <div class="cover-overlay"></div>
   <div class="cover-content">
-    <div class="cover-eyebrow" data-i18n="cover_eyebrow"></div>
-    <h1 data-i18n="cover_title"></h1>
-    <div class="cover-sub" data-i18n="cover_sub"></div>
+    <div class="cover-eyebrow">Guía de Cata</div>
+    <h1>Selección para<br><em>Gran Folies</em></h1>
+    <div class="cover-sub">Tres vinos con identidad, profundidad y una lectura clara de lujo contemporáneo.</div>
+
+    <div class="cover-dedication">
+      <span class="small">Preparado para</span>
+      <span class="name">Francisco Morillo</span>
+      <span class="role">GM Gran Folies</span>
+    </div>
+
     <div class="cover-meta">
       <span>Gran Folies Beach Club</span>
       <div class="dot"></div>
@@ -1049,8 +966,9 @@ body::after {
       <div class="dot"></div>
       <span>2026</span>
     </div>
+
     <div class="cover-scroll">
-      <span data-i18n="cover_scroll"></span>
+      <span>Descubrir</span>
       <div class="line"></div>
     </div>
   </div>
@@ -1061,43 +979,38 @@ body::after {
   <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017342/7_vbmwth.png" alt="" class="parallax-img">
   <div class="photo-full-overlay"></div>
   <div class="photo-full-text">
-    <h3 class="reveal" data-i18n="photo1_title"></h3>
-    <p class="reveal reveal-delay-1" data-i18n="photo1_sub"></p>
+    <h3 class="reveal">Una guía hecha para conversación, servicio y memoria</h3>
+    <p class="reveal reveal-delay-1">No es solo una lista de vinos. Es una lectura de estilo, posicionamiento y experiencia para Gran Folies.</p>
   </div>
 </div>
 
 <!-- ══════ INTRO ══════ -->
 <section class="intro">
-  <div class="section-tag reveal" data-i18n="intro_tag"></div>
-  <p class="intro-text reveal" data-i18n="intro_text"></p>
+  <div class="section-tag reveal">Introducción</div>
+  <p class="intro-text reveal">
+    Esta guía ha sido construida para presentar tres etiquetas con personalidad propia, capaces de ocupar lugares distintos dentro del servicio:
+    <em>un tinto de conexión inmediata</em>, <em>un blanco con fondo y evolución</em> y <em>un vino de dimensión internacional</em>.
+  </p>
   <div class="divider-line reveal"></div>
-  <p class="intro-note reveal" data-i18n="intro_note"></p>
+  <p class="intro-note reveal">
+    La intención no es solo describir aromas o textura, sino ofrecer una narrativa clara para sala, dirección y cliente final:
+    qué representa cada vino, cómo se posiciona y por qué merece estar en una mesa como la de Gran Folies.
+  </p>
 </section>
 
-<!-- ══════ RITUAL ══════ -->
-<section class="ritual">
-  <div class="ritual-inner">
-    <div class="section-tag reveal" data-i18n="ritual_tag"></div>
-    <div class="ritual-grid">
-      <div class="ritual-step reveal">
-        <div class="step-num">01</div>
-        <h4 data-i18n="r1_title"></h4>
-        <p data-i18n="r1_text"></p>
-      </div>
-      <div class="ritual-step reveal reveal-delay-1">
-        <div class="step-num">02</div>
-        <h4 data-i18n="r2_title"></h4>
-        <p data-i18n="r2_text"></p>
-      </div>
-      <div class="ritual-step reveal reveal-delay-2">
-        <div class="step-num">03</div>
-        <h4 data-i18n="r3_title"></h4>
-        <p data-i18n="r3_text"></p>
-      </div>
-      <div class="ritual-step reveal reveal-delay-3">
-        <div class="step-num">04</div>
-        <h4 data-i18n="r4_title"></h4>
-        <p data-i18n="r4_text"></p>
+<!-- ══════ CREATOR ══════ -->
+<section class="creator">
+  <div class="creator-inner">
+    <div class="section-tag reveal">Visión detrás de la selección</div>
+    <div class="creator-card reveal">
+      <div class="creator-name">Travis Braithwaite</div>
+      <div class="creator-role">Crafting · Direction · Wine Identity</div>
+      <div class="creator-copy">
+        Detrás de esta selección está Travis Braithwaite, el hombre que ha dado forma y dirección a estos vinos con una visión muy poco común.
+        Nacido en Canadá y criado en Sudáfrica, Travis ha desarrollado un enfoque que combina sensibilidad estética, ambición internacional y una comprensión muy precisa de cómo construir vinos con identidad, profundidad y capacidad de emocionar.
+        En <em>Nip Slip</em> y <em>Grace</em> se percibe ese trabajo de crafting: vinos pensados no solo para estar bien hechos, sino para tener una personalidad reconocible, una presencia elegante en copa y un relato claro detrás.
+        En el caso de <em>Pangea</em>, esa visión alcanza una dimensión aún mayor, al desarrollar junto a Michel Rolland un auténtico “Wine of the World”, ensamblado a partir de grandes variedades procedentes de algunos de los terroirs más prestigiosos del planeta.
+        Más que elaborar vino, Travis trabaja cada etiqueta como una obra de construcción fina: equilibrio, carácter, recorrido y una idea muy clara de lujo contemporáneo.
       </div>
     </div>
   </div>
@@ -1108,56 +1021,73 @@ body::after {
   <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016652/59_uttomj.jpg" alt="" class="parallax-img">
   <div class="photo-full-overlay"></div>
   <div class="photo-full-text">
-    <h3 class="reveal" data-i18n="selection_title"></h3>
+    <h3 class="reveal">La selección</h3>
+    <p class="reveal reveal-delay-1">Tres lecturas distintas del vino: presencia, textura y rareza.</p>
   </div>
 </div>
 
-<!-- ══════ WINE 1 — PANGEA ══════ -->
+<!-- ══════ WINE 1 — NIP SLIP ══════ -->
 <section class="wine-section">
-  <div class="wine-card wine-1">
-    <div class="wc-visual bg-burgundy">
+  <div class="wine-card wine-1 reverse">
+    <div class="wc-visual bg-ruby">
       <div class="wine-number">01</div>
-      <img class="bottle-img" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017354/12_ct79it.png" alt="Pangea">
-      <div class="wine-type-badge" data-i18n="pangea_badge"></div>
+      <img class="bottle-img" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017352/11_afwrmg.png" alt="Nip Slip">
+      <div class="wine-type-badge">Tinto · Stellenbosch</div>
     </div>
     <div class="wc-info">
-      <div class="wine-eyebrow reveal" data-i18n="pangea_eyebrow"></div>
-      <h2 class="reveal">Pangea</h2>
-      <div class="wine-subtitle reveal" data-i18n="pangea_subtitle"></div>
+      <div class="wine-eyebrow reveal">Primer vino · Presencia inmediata</div>
+      <h2 class="reveal">Nip Slip</h2>
+      <div class="wine-subtitle reveal">Tinto · Stellenbosch · Shiraz · Cabernet Sauvignon · Mourvèdre</div>
+
       <div class="tasting-wheel reveal">
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_sight"></span>
-          <span class="tw-value" data-i18n="pangea_sight"></span>
+          <span class="tw-label">Color / Vista</span>
+          <span class="tw-value">Rojo rubí profundo con reflejos violáceos y capa media-alta. Energía, nobleza y concentración.</span>
         </div>
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M12 2C12 2 8 8 8 14c0 3 1.5 6 4 6s4-3 4-6c0-6-4-12-4-12z"/><path d="M6 18c-1 1-2 2-2 3h4"/><path d="M18 18c1 1 2 2 2 3h-4"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_nose"></span>
-          <span class="tw-value" data-i18n="pangea_nose"></span>
+          <span class="tw-label">Olfato</span>
+          <span class="tw-value">Fruta negra madura, ciruela, mora y cereza negra, con especias finas, fondo terroso y mineralidad elegante.</span>
         </div>
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M7 2C5 8 4 11 4 14a8 8 0 0 0 16 0c0-3-1-6-3-12z"/><path d="M8 14c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_palate"></span>
-          <span class="tw-value" data-i18n="pangea_palate"></span>
+          <span class="tw-label">Sabor / Boca</span>
+          <span class="tw-value">Entrada amplia, sedosa y estructurada. Tanino pulido, buena frescura y final persistente.</span>
         </div>
       </div>
+
       <div class="tasting-prose reveal">
-        <h4 data-i18n="lbl_notes"></h4>
-        <p data-i18n="pangea_notes"></p>
+        <h4>Impresión general</h4>
+        <p>
+          Nip Slip nace en Stellenbosch, una de las regiones vitivinícolas más respetadas de Sudáfrica. La casa lo construye a partir de Shiraz, Cabernet Sauvignon y Mourvèdre, seleccionadas para expresar fruta madura, estructura y elegancia, con un paso por roble francés que aporta complejidad y un final refinado. Ese origen le da una identidad muy marcada: no solo concentración y carisma, sino también una mineralidad fina y una tensión interna que elevan el conjunto. Es un tinto con presencia, personalidad y una gran capacidad de conexión inmediata.
+        </p>
       </div>
+
       <div class="specs-grid reveal">
-        <div class="spec-cell"><label>Blend</label><span>Cabernet Sauvignon · Merlot · Petit Verdot · Cabernet Franc · Malbec</span></div>
-        <div class="spec-cell"><label data-i18n="lbl_origin"></label><span>Napa Valley · Bordeaux · Espana · South Africa · Argentina</span></div>
-        <div class="spec-cell"><label data-i18n="lbl_character"></label><span data-i18n="pangea_character"></span></div>
-        <div class="spec-cell"><label data-i18n="lbl_positioning"></label><span data-i18n="pangea_positioning"></span></div>
+        <div class="spec-cell"><label>Blend</label><span>Shiraz · Cabernet Sauvignon · Mourvèdre</span></div>
+        <div class="spec-cell"><label>Origen</label><span>Stellenbosch · Sudáfrica</span></div>
+        <div class="spec-cell"><label>Carácter</label><span>Fruta madura, estructura noble, especia fina y mineralidad sutil</span></div>
+        <div class="spec-cell"><label>Posicionamiento</label><span>Tinto con presencia, clase y conexión inmediata</span></div>
       </div>
+
       <div class="score-strip reveal">
-        <div class="score-circle"><span>97</span></div>
-        <div class="score-text" data-i18n="pangea_score"></div>
+        <div class="score-circle"><span>92</span></div>
+        <div class="score-text">
+          <strong>Versátil y carismático.</strong><br>
+          Un vino con fruta, estructura y elegancia suficiente para servicio gastronómico, pero con la cercanía necesaria para funcionar con mucha naturalidad en mesa.
+        </div>
       </div>
+
       <div class="pairing-strip reveal">
-        <h5 data-i18n="lbl_pairing"></h5>
-        <div class="pairing-tags" id="pangea-pairing"></div>
+        <h5>Maridaje recomendado</h5>
+        <div class="pairing-tags">
+          <span class="pairing-tag">Carnes rojas</span>
+          <span class="pairing-tag">Cordero</span>
+          <span class="pairing-tag">Platos al carbón</span>
+          <span class="pairing-tag">Quesos curados</span>
+          <span class="pairing-tag">Cocina mediterránea intensa</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1169,52 +1099,68 @@ body::after {
   <div class="photo-full-overlay"></div>
 </div>
 
-<!-- ══════ WINE 2 — NIP SLIP ══════ -->
+<!-- ══════ WINE 2 — GRACE ══════ -->
 <section class="wine-section">
-  <div class="wine-card wine-2 reverse">
-    <div class="wc-visual bg-ruby">
+  <div class="wine-card wine-2">
+    <div class="wc-visual bg-gold">
       <div class="wine-number">02</div>
-      <img class="bottle-img" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017352/11_afwrmg.png" alt="Nip Slip">
-      <div class="wine-type-badge" data-i18n="nipslip_badge"></div>
+      <img class="bottle-img" src="https://res.cloudinary.com/dqje367sj/image/upload/v1774188366/5A878982-808A-4435-9701-F22D94FC6C56_hxpogn.png" alt="Grace">
+      <div class="wine-type-badge">Blanco · Chenin Blanc · Viognier</div>
     </div>
     <div class="wc-info">
-      <div class="wine-eyebrow reveal" data-i18n="nipslip_eyebrow"></div>
-      <h2 class="reveal">Nip Slip</h2>
-      <div class="wine-subtitle reveal" data-i18n="nipslip_subtitle"></div>
+      <div class="wine-eyebrow reveal">Segundo vino · Blanco con fondo</div>
+      <h2 class="reveal">Grace 2020</h2>
+      <div class="wine-subtitle reveal">Blanco · Chenin Blanc · Viognier</div>
+
       <div class="tasting-wheel reveal">
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_sight"></span>
-          <span class="tw-value" data-i18n="nipslip_sight"></span>
+          <span class="tw-label">Color / Vista</span>
+          <span class="tw-value">Amarillo pajizo brillante con reflejos dorados suaves. Limpio, luminoso y elegante.</span>
         </div>
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M12 2C12 2 8 8 8 14c0 3 1.5 6 4 6s4-3 4-6c0-6-4-12-4-12z"/><path d="M6 18c-1 1-2 2-2 3h4"/><path d="M18 18c1 1 2 2 2 3h-4"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_nose"></span>
-          <span class="tw-value" data-i18n="nipslip_nose"></span>
+          <span class="tw-label">Olfato</span>
+          <span class="tw-value">Cítricos, melocotón, fruta tropical fresca, notas florales, vainilla y marcado carácter de lías.</span>
         </div>
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M7 2C5 8 4 11 4 14a8 8 0 0 0 16 0c0-3-1-6-3-12z"/><path d="M8 14c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_palate"></span>
-          <span class="tw-value" data-i18n="nipslip_palate"></span>
+          <span class="tw-label">Sabor / Boca</span>
+          <span class="tw-value">Boca plena, rica y texturada. Amplitud, persistencia y acidez viva que equilibra su crianza.</span>
         </div>
       </div>
+
       <div class="tasting-prose reveal">
-        <h4 data-i18n="lbl_notes"></h4>
-        <p data-i18n="nipslip_notes"></p>
+        <h4>Impresión general</h4>
+        <p>
+          Grace 2020 es un blanco de ambición seria, de esos que no buscan deslumbrar solo por frescura, sino por profundidad, textura y evolución. El Chenin Blanc aporta estructura y columna vertebral, mientras que el Viognier suma notas florales y una textura envolvente. En bodega, el Chenin fermenta en barricas francesas usadas de gran formato durante 12 meses, y el Viognier, procedente de viñedos en altura, envejece entre 12 y 16 meses en barrica francesa nueva y usada. El resultado es un blanco con clase, profundidad y capacidad de guarda. La madera aquí no tapa: construye.
+        </p>
       </div>
+
       <div class="specs-grid reveal">
-        <div class="spec-cell"><label>Blend</label><span>Shiraz · Cabernet Sauvignon · Mourvedre</span></div>
-        <div class="spec-cell"><label data-i18n="lbl_style"></label><span data-i18n="nipslip_style"></span></div>
-        <div class="spec-cell"><label data-i18n="lbl_palate"></label><span data-i18n="nipslip_palate_spec"></span></div>
-        <div class="spec-cell"><label data-i18n="lbl_positioning"></label><span data-i18n="nipslip_positioning"></span></div>
+        <div class="spec-cell"><label>Blend</label><span>Chenin Blanc · Viognier</span></div>
+        <div class="spec-cell"><label>Crianza</label><span>12 meses en barrica para Chenin · 12–16 meses para Viognier</span></div>
+        <div class="spec-cell"><label>Perfil</label><span>Profundo, texturado, floral, cítrico y con nobleza de barrica</span></div>
+        <div class="spec-cell"><label>Posicionamiento</label><span>Blanco gastronómico con recorrido y memoria</span></div>
       </div>
+
       <div class="score-strip reveal">
-        <div class="score-circle"><span>92</span></div>
-        <div class="score-text" data-i18n="nipslip_score"></div>
+        <div class="score-circle"><span>94</span></div>
+        <div class="score-text">
+          <strong>Un blanco serio y memorable.</strong><br>
+          No trabaja desde la frescura fácil, sino desde la arquitectura, el volumen y la evolución. Ideal para una mesa que busca algo más que un blanco joven convencional.
+        </div>
       </div>
+
       <div class="pairing-strip reveal">
-        <h5 data-i18n="lbl_pairing"></h5>
-        <div class="pairing-tags" id="nipslip-pairing"></div>
+        <h5>Maridaje recomendado</h5>
+        <div class="pairing-tags">
+          <span class="pairing-tag">Pescado graso</span>
+          <span class="pairing-tag">Marisco</span>
+          <span class="pairing-tag">Arroces melosos</span>
+          <span class="pairing-tag">Aves</span>
+          <span class="pairing-tag">Cocina con mantequilla o lías</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1225,56 +1171,73 @@ body::after {
   <img src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774016638/55_joare6.jpg" alt="" class="parallax-img">
   <div class="photo-full-overlay"></div>
   <div class="photo-full-text">
-    <h3 class="reveal">Grace — V Collection</h3>
+    <h3 class="reveal">Pangea</h3>
+    <p class="reveal reveal-delay-1">Un vino concebido como relato internacional, colección y conversación.</p>
   </div>
 </div>
 
-<!-- ══════ WINE 3 — GRACE ══════ -->
+<!-- ══════ WINE 3 — PANGEA ══════ -->
 <section class="wine-section">
-  <div class="wine-card wine-3">
-    <div class="wc-visual bg-gold">
+  <div class="wine-card wine-3 reverse">
+    <div class="wc-visual bg-burgundy">
       <div class="wine-number">03</div>
-      <img class="bottle-img" src="https://res.cloudinary.com/dqje367sj/image/upload/v1774188366/5A878982-808A-4435-9701-F22D94FC6C56_hxpogn.png" alt="Grace">
-      <div class="wine-type-badge" data-i18n="grace_badge"></div>
+      <img class="bottle-img" src="https://res.cloudinary.com/dxhef6dju/image/upload/v1774017354/12_ct79it.png" alt="Pangea">
+      <div class="wine-type-badge">Tinto · Wine of the World</div>
     </div>
     <div class="wc-info">
-      <div class="wine-eyebrow reveal" data-i18n="grace_eyebrow"></div>
-      <h2 class="reveal">Grace</h2>
-      <div class="wine-subtitle reveal" data-i18n="grace_subtitle"></div>
+      <div class="wine-eyebrow reveal">Tercer vino · Edición limitada</div>
+      <h2 class="reveal">Pangea</h2>
+      <div class="wine-subtitle reveal">Tinto · Wine of the World · Edición limitada</div>
+
       <div class="tasting-wheel reveal">
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_sight"></span>
-          <span class="tw-value" data-i18n="grace_sight"></span>
+          <span class="tw-label">Color / Vista</span>
+          <span class="tw-value">Granate profundo y brillante, con destellos rojos nobles y toques fucsia en el ribete.</span>
         </div>
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M12 2C12 2 8 8 8 14c0 3 1.5 6 4 6s4-3 4-6c0-6-4-12-4-12z"/><path d="M6 18c-1 1-2 2-2 3h4"/><path d="M18 18c1 1 2 2 2 3h-4"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_nose"></span>
-          <span class="tw-value" data-i18n="grace_nose"></span>
+          <span class="tw-label">Olfato</span>
+          <span class="tw-value">Tomillo, pimienta, pizarra, rosas, vainilla y cerezas maceradas. Nariz amplia y singular.</span>
         </div>
         <div class="tw-segment">
           <span class="tw-icon"><svg viewBox="0 0 24 24"><path d="M7 2C5 8 4 11 4 14a8 8 0 0 0 16 0c0-3-1-6-3-12z"/><path d="M8 14c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg></span>
-          <span class="tw-label" data-i18n="lbl_palate"></span>
-          <span class="tw-value" data-i18n="grace_palate"></span>
+          <span class="tw-label">Sabor / Boca</span>
+          <span class="tw-value">Entrada suave, centro denso y refinado, tanino fino, textura envolvente y final largo.</span>
         </div>
       </div>
+
       <div class="tasting-prose reveal">
-        <h4 data-i18n="lbl_notes"></h4>
-        <p data-i18n="grace_notes"></p>
+        <h4>Impresión general</h4>
+        <p>
+          Pangea es un vino concebido desde una idea extraordinaria: crear un auténtico <em>Wine of the World</em> a partir de variedades nobles procedentes de algunos de los grandes orígenes del planeta. El ensamblaje reúne Cabernet Sauvignon de Napa Valley, Merlot de Bordeaux, Petit Verdot de España, Cabernet Franc de Sudáfrica y Malbec de Argentina. No responde a una sola geografía, sino a una visión: distintas culturas vitícolas, distintos terroirs y distintas expresiones unidas en una sola botella. Pangea no es solo un gran vino; es un vino con relato, rareza y dimensión internacional.
+        </p>
       </div>
+
       <div class="specs-grid reveal">
-        <div class="spec-cell"><label>Blend</label><span>Chenin Blanc 60% · Viognier 30% · Chardonnay 10%</span></div>
-        <div class="spec-cell"><label data-i18n="lbl_production"></label><span>2.000 bottles · 13% alc.</span></div>
-        <div class="spec-cell"><label data-i18n="lbl_profile"></label><span data-i18n="grace_profile"></span></div>
-        <div class="spec-cell"><label data-i18n="lbl_food"></label><span data-i18n="grace_food"></span></div>
+        <div class="spec-cell"><label>Blend</label><span>Cabernet Sauvignon · Merlot · Petit Verdot · Cabernet Franc · Malbec</span></div>
+        <div class="spec-cell"><label>Origen</label><span>Napa Valley · Bordeaux · España · Sudáfrica · Argentina</span></div>
+        <div class="spec-cell"><label>Carácter</label><span>Complejo, sofisticado, envolvente y de altísimo posicionamiento</span></div>
+        <div class="spec-cell"><label>Posicionamiento</label><span>Botella de lujo, colección y conversación</span></div>
       </div>
+
       <div class="score-strip reveal">
-        <div class="score-circle"><span>94</span></div>
-        <div class="score-text" data-i18n="grace_score"></div>
+        <div class="score-circle"><span>97</span></div>
+        <div class="score-text">
+          <strong>Raro, internacional y memorable.</strong><br>
+          Su grandeza está en convertir distintos terroirs y variedades nobles en una sola botella coherente, seria y de presencia extraordinaria.
+        </div>
       </div>
+
       <div class="pairing-strip reveal">
-        <h5 data-i18n="lbl_pairing"></h5>
-        <div class="pairing-tags" id="grace-pairing"></div>
+        <h5>Maridaje recomendado</h5>
+        <div class="pairing-tags">
+          <span class="pairing-tag">Carnes nobles</span>
+          <span class="pairing-tag">Cordero</span>
+          <span class="pairing-tag">Caza</span>
+          <span class="pairing-tag">Salsas reducidas</span>
+          <span class="pairing-tag">Quesos de afinado largo</span>
+        </div>
       </div>
     </div>
   </div>
@@ -1289,43 +1252,48 @@ body::after {
 <!-- ══════ TEMPERATURE ══════ -->
 <section class="temp-guide">
   <div class="temp-inner">
-    <div class="section-tag reveal" data-i18n="temp_tag"></div>
+    <div class="section-tag reveal">Guía de temperatura y servicio</div>
+
     <div class="temp-row reveal">
-      <div class="temp-wine">Pangea<small>Prestige Blend</small></div>
-      <div class="temp-value">17&#176;</div>
-      <div class="temp-note" data-i18n="temp_pangea"></div>
+      <div class="temp-wine">Nip Slip<small>Tinto · Stellenbosch</small></div>
+      <div class="temp-value">16°</div>
+      <div class="temp-note">Servir en copa tinto amplia. No requiere ritual excesivo: funciona mejor con servicio seguro, fluido y sin rigidez.</div>
     </div>
+
     <div class="temp-row reveal">
-      <div class="temp-wine">Nip Slip<small data-i18n="temp_ns_sub"></small></div>
-      <div class="temp-value">16&#176;</div>
-      <div class="temp-note" data-i18n="temp_nipslip"></div>
+      <div class="temp-wine">Grace 2020<small>Blanco · Chenin Blanc · Viognier</small></div>
+      <div class="temp-value">11°</div>
+      <div class="temp-note">Servir en copa blanca amplia. Evitar el exceso de frío para no esconder la textura, la barrica y la complejidad aromática.</div>
     </div>
+
     <div class="temp-row reveal">
-      <div class="temp-wine">Grace<small>Signature White</small></div>
-      <div class="temp-value">11&#176;</div>
-      <div class="temp-note" data-i18n="temp_grace"></div>
+      <div class="temp-wine">Pangea<small>Wine of the World</small></div>
+      <div class="temp-value">17°</div>
+      <div class="temp-note">Copa Bordeaux amplia. Si se desea máxima expresión, abrir con antelación o decantar ligeramente antes del servicio.</div>
     </div>
   </div>
 </section>
 
 <!-- ══════ SERVICE ══════ -->
 <section class="service">
-  <div class="section-tag reveal" data-i18n="service_tag"></div>
+  <div class="section-tag reveal">Claves de servicio</div>
   <div class="service-grid">
     <div class="service-card reveal">
       <span class="sc-icon"><svg viewBox="0 0 24 24"><path d="M8 2h8l-1 10a3 3 0 0 1-3 3 3 3 0 0 1-3-3L8 2z"/><line x1="12" y1="15" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></span>
-      <h4 data-i18n="svc1_title"></h4>
-      <p data-i18n="svc1_text"></p>
+      <h4>La copa importa</h4>
+      <p>Grace necesita amplitud para mostrar textura y lías. Pangea pide espacio para desplegar capas. Nip Slip funciona con una copa de tinto bien elegida y servicio limpio.</p>
     </div>
+
     <div class="service-card reveal reveal-delay-1">
       <span class="sc-icon"><svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg></span>
-      <h4 data-i18n="svc2_title"></h4>
-      <p data-i18n="svc2_text"></p>
+      <h4>La temperatura decide mucho</h4>
+      <p>Un blanco demasiado frío pierde profundidad. Un tinto demasiado caliente pierde precisión. La elegancia del servicio empieza en ese pequeño ajuste técnico.</p>
     </div>
+
     <div class="service-card reveal reveal-delay-2">
       <span class="sc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
-      <h4 data-i18n="svc3_title"></h4>
-      <p data-i18n="svc3_text"></p>
+      <h4>Cada vino tiene su momento</h4>
+      <p>Nip Slip conecta rápido. Grace acompaña una mesa gastronómica con más calma. Pangea entra cuando la conversación pide una botella con dimensión y relato.</p>
     </div>
   </div>
 </section>
@@ -1333,11 +1301,15 @@ body::after {
 <!-- ══════ CLOSING ══════ -->
 <section class="closing">
   <div class="closing-inner">
-    <p class="closing-quote reveal" data-i18n="closing_quote"></p>
+    <p class="closing-quote reveal">
+      Una gran selección no solo eleva la carta.<br>
+      También eleva la <em>memoria</em>, la conversación<br>
+      y la percepción del lugar.
+    </p>
     <div class="closing-line reveal"></div>
-    <div class="closing-sig reveal" data-i18n="closing_sig"></div>
-    <div class="closing-name reveal">Travis Braithwaite</div>
-    <div class="closing-role reveal">Winemaker · Creative Director</div>
+    <div class="closing-sig reveal">Preparado para</div>
+    <div class="closing-name reveal">Francisco Morillo</div>
+    <div class="closing-role reveal">GM Gran Folies</div>
   </div>
 </section>
 
@@ -1349,486 +1321,12 @@ body::after {
 (function() {
   "use strict";
 
-  /* ════════════════════════════════════════
-     TRANSLATIONS — 6 LANGUAGES
-     ════════════════════════════════════════ */
-
-  var T = {};
-
-  // ── ESPANOL ──
-  T.es = {
-    cover_eyebrow: "Guia de Cata Exclusiva",
-    cover_title: "El Arte de<br><em>Degustar</em>",
-    cover_sub: "Tres vinos. Tres mundos. Una experiencia sensorial completa.",
-    cover_scroll: "Descubrir",
-    photo1_title: "Donde el Mediterraneo se convierte en copa",
-    photo1_sub: "Un espacio que merece un programa de vino a su altura.",
-    intro_tag: "Bienvenidos a la Cata",
-    intro_text: "Esta guia no es un simple listado de notas de cata.<br>Es una <em>invitacion a sentir</em>.<br><br>Cada vino ha sido seleccionado para contar una historia completa — desde la primera impresion visual hasta el final persistente que queda grabado en la memoria del paladar.",
-    intro_note: "Tomad vuestro tiempo. El vino no tiene prisa. Observad, girad la copa, inhaled profundamente antes de cada sorbo. Dejad que el vino hable primero.",
-    ritual_tag: "El Ritual de la Cata",
-    r1_title: "Vista",
-    r1_text: "Inclinad la copa sobre fondo blanco. Observad el color, la intensidad, los reflejos en el borde. El menisco revela la edad; el corazon, la concentracion y la densidad del vino.",
-    r2_title: "Nariz",
-    r2_text: "Primero en reposo: los aromas primarios emergen libres. Luego girad con suavidad y dejad que el vino respire. Segundo pase: la complejidad se despliega. Fruta, tierra, especias, memoria.",
-    r3_title: "Boca",
-    r3_text: "Un sorbo generoso que cubra todo el paladar. Entrada, evolucion en el mid-palate, final. Buscad el equilibrio entre acidez, tanino, fruta y cuerpo. Sentid la textura.",
-    r4_title: "Final",
-    r4_text: "La persistencia del vino tras tragar. Contad los segundos. Los grandes vinos permanecen, cambian y evolucionan. Y siempre os invitan a volver a la copa.",
-    selection_title: "La Seleccion",
-    pangea_badge: "Tinto · Prestige",
-    pangea_eyebrow: "Primer Vino · Blend Global",
-    pangea_subtitle: "Tinto de cinco paises · Edicion limitada",
-    pangea_sight: "Rubi profundo con destellos granate intensos. Lagrima densa, lenta y glicerinica. Concentracion excepcional.",
-    pangea_nose: "Cassis, cedro, tabaco rubio, grafito, violeta marchita. Complejo, en capas, con un fondo de chocolate negro y cuero fino.",
-    pangea_palate: "Entrada envolvente y generosa. Taninos de seda con estructura noble. Mid-palate tridimensional. Final de mas de 45 segundos.",
-    pangea_notes: "Pangea es un vino que no se entiende con un solo sorbo. Es un <em>viaje a traves de cinco terroirs</em>. La primera nariz ofrece fruta negra madura y especias dulces; tras diez minutos en copa, emergen notas de <em>grafito, cuero y tierra humeda</em> que revelan la complejidad de cinco origenes unidos en un solo blend. En boca, la textura es casi <em>tridimensional</em> — capas que se despliegan con paciencia infinita. El final es kilometrico, con un recuerdo mineral y de regaliz que invita irresistiblemente al siguiente sorbo.",
-    pangea_character: "Complejo, fluido, capas que se revelan con elegancia natural",
-    pangea_positioning: "Icono de carta — presencia y diferenciacion absoluta",
-    pangea_score: "<strong>Potencial de guarda: 15-20 anos.</strong><br>Vino de meditacion y celebracion. Reservar para mesas que buscan lo excepcional. Servir en copa Bordeaux amplia a 17 grados. Decantar 30-45 minutos.",
-    lbl_sight: "Vista",
-    lbl_nose: "Nariz",
-    lbl_palate: "Paladar",
-    lbl_notes: "Notas del Sommelier",
-    lbl_origin: "Origen",
-    lbl_character: "Caracter",
-    lbl_positioning: "Posicionamiento",
-    lbl_pairing: "Maridaje Recomendado",
-    lbl_style: "Estilo",
-    lbl_production: "Produccion",
-    lbl_profile: "Perfil",
-    lbl_food: "Maridaje",
-    nipslip_badge: "Tinto · Volumen",
-    nipslip_eyebrow: "Segundo Vino · Alta Rotacion",
-    nipslip_subtitle: "Tinto · Blend · Stellenbosch, Sudafrica",
-    nipslip_sight: "Rubi intenso, juvenil, con bordes violaceos vibrantes. Brillo vivo y atractivo que seduce desde el primer momento.",
-    nipslip_nose: "Frutos rojos maduros, mora, pimienta negra, toque de vainilla y clavo. Aromas francos y directos, sin artificio.",
-    nipslip_palate: "Entrada sedosa y envolvente, mid-palate jugoso y estructurado. Taninos pulidos con final limpio de mas de 20 segundos.",
-    nipslip_notes: "Nip Slip es <em>seduccion inmediata</em>. Desde el primer momento en copa, la fruta explosiva y el caracter especiado del Shiraz sudafricano atrapan sin esfuerzo. No es un vino que pida analisis — es un vino que pide <em>conversacion, risas y repetir</em>. El blend con Cabernet aporta estructura sin rigidez; el Mourvedre suma profundidad terrosa y complejidad. El resultado es un tinto increiblemente <em>versatil</em>: funciona igual de bien bajo el sol junto al mar que en una mesa de noche con buena compania.",
-    nipslip_style: "Rubi profundo, fruta roja y negra, especias sutiles",
-    nipslip_palate_spec: "Entrada sedosa, mid-palate estructurado, taninos pulidos",
-    nipslip_positioning: "Pilar de ventas — copa y botella en servicio diario",
-    nipslip_score: "<strong>Listo para disfrutar ahora.</strong><br>El gran todoterreno de la seleccion. Versatil, carismatico y memorablemente facil de recomendar. Servir a 16 grados. No requiere decantacion.",
-    grace_badge: "Blanco · Signature",
-    grace_eyebrow: "Tercer Vino · V Collection",
-    grace_subtitle: "Blanco · Chenin Blanc · Viognier · Chardonnay",
-    grace_sight: "Dorado palido con reflejos verdosos elegantes. Brillo cristalino. Lagrima fina y persistente que habla de concentracion.",
-    grace_nose: "Melocoton blanco, pomelo, flor de azahar, vainilla sutil, notas de lias. Aromaticamente generoso pero contenido.",
-    grace_palate: "Textura cremosa y envolvente. Acidez vibrante que sostiene todo. Final largo con recuerdo mineral y citrico que no se apaga.",
-    grace_notes: "Grace es un blanco que <em>desafia expectativas</em>. La primera impresion es de frescura mediterranea — citricos, fruta de hueso — pero la textura sobre lias y el aporte del Viognier construyen un <em>mid-palate de una riqueza inesperada</em>. Es un vino que evoluciona en la copa: los primeros 15 minutos son pura fruta vibrante; la segunda copa revela <em>complejidad, profundidad y un caracter que crece</em>. El Chenin Blanc sudafricano aporta la columna vertebral acida que mantiene todo en equilibrio perfecto. Un blanco con alma.",
-    grace_profile: "Fruta tropical, citricos, melocoton, vainilla, caracter sobre lias",
-    grace_food: "Marisco, moules, pato, cocina asiatica, risotto",
-    grace_score: "<strong>Potencial de evolucion: 3-5 anos.</strong><br>Blanco gastronomico de primer nivel. Copa ideal tanto para aperitivo como para platos principales. Servir a 10-12 grados en copa amplia.",
-    temp_tag: "Guia de Temperatura y Servicio",
-    temp_pangea: "Copa Bordeaux amplia. Decantar 30-45 minutos. Servir con protocolo de etiqueta.",
-    temp_ns_sub: "Tinto Volumen",
-    temp_nipslip: "Copa universal tinto. No requiere decantacion. Servicio directo, agil y sin ceremonias.",
-    temp_grace: "Copa blanca amplia. Sacar de cubitera 5 minutos antes. Evitar sobreenfriar — el frio excesivo esconde su complejidad.",
-    service_tag: "Consejos de Servicio",
-    svc1_title: "La Copa Correcta",
-    svc1_text: "La copa no es decoracion — amplifica o destruye el aroma. Pangea exige Bordeaux; Grace necesita amplitud para respirar y expresarse. Nunca servir un blanco complejo en copa estrecha.",
-    svc2_title: "Temperatura Justa",
-    svc2_text: "Un grado de mas en un tinto reduce la percepcion de fruta. Un grado de menos en un blanco esconde la complejidad. La precision en el servicio es una forma silenciosa de elegancia.",
-    svc3_title: "El Momento",
-    svc3_text: "Pangea es para la pausa reflexiva. Nip Slip, para la energia social. Grace, para ese instante en que el sol desciende y la brisa llega del mar. Cada vino tiene su momento perfecto.",
-    closing_quote: "El mejor sommelier no es quien mas sabe.<br>Es quien mejor <em>escucha</em> —<br>al vino y a quien lo bebe.",
-    closing_sig: "Con pasion,"
-  };
-
-  // ── ENGLISH ──
-  T.en = {
-    cover_eyebrow: "Exclusive Tasting Guide",
-    cover_title: "The Art of<br><em>Tasting</em>",
-    cover_sub: "Three wines. Three worlds. A complete sensory experience.",
-    cover_scroll: "Discover",
-    photo1_title: "Where the Mediterranean becomes a glass",
-    photo1_sub: "A space that deserves a wine programme to match.",
-    intro_tag: "Welcome to the Tasting",
-    intro_text: "This guide is not a simple list of tasting notes.<br>It is an <em>invitation to feel</em>.<br><br>Each wine has been selected to tell a complete story — from the first visual impression to the persistent finish that remains etched in the memory of the palate.",
-    intro_note: "Take your time. Wine is never in a hurry. Observe, swirl the glass, breathe deeply before each sip. Let the wine speak first.",
-    ritual_tag: "The Ritual of Tasting",
-    r1_title: "Sight", r1_text: "Tilt the glass against a white background. Observe the colour, intensity and rim reflections. The meniscus reveals age; the core reveals concentration and density.",
-    r2_title: "Nose", r2_text: "First at rest: the primary aromas emerge freely. Then swirl gently and let the wine breathe. Second pass: complexity unfolds. Fruit, earth, spice, memory.",
-    r3_title: "Palate", r3_text: "A generous sip that coats the entire palate. Entry, mid-palate evolution, finish. Seek the balance between acidity, tannin, fruit and body. Feel the texture.",
-    r4_title: "Finish", r4_text: "The persistence of the wine after swallowing. Count the seconds. Great wines linger, shift and evolve. They always invite you back to the glass.",
-    selection_title: "The Selection",
-    pangea_badge: "Red · Prestige", pangea_eyebrow: "First Wine · Global Blend", pangea_subtitle: "Red from five countries · Limited edition",
-    pangea_sight: "Deep ruby with intense garnet reflections. Dense, slow, glyceric tears. Exceptional concentration.",
-    pangea_nose: "Blackcurrant, cedar, blond tobacco, graphite, wilted violet. Complex, layered, with dark chocolate and fine leather.",
-    pangea_palate: "Enveloping, generous entry. Silk tannins with noble structure. Three-dimensional mid-palate. Finish exceeding 45 seconds.",
-    pangea_notes: "Pangea is a wine that cannot be understood in a single sip. It is a <em>journey across five terroirs</em>. The first nose offers ripe dark fruit and sweet spice; after ten minutes in the glass, notes of <em>graphite, leather and damp earth</em> emerge, revealing the complexity of five origins united in one blend. On the palate, the texture is almost <em>three-dimensional</em> — layers that unfold with infinite patience. The finish is endless, with a mineral and liquorice memory that irresistibly invites the next sip.",
-    pangea_character: "Complex, seamless, layers that reveal with natural elegance",
-    pangea_positioning: "Icon of the list — absolute presence and differentiation",
-    pangea_score: "<strong>Ageing potential: 15-20 years.</strong><br>A wine for meditation and celebration. Reserve for tables seeking the exceptional. Serve in a large Bordeaux glass at 17 degrees. Decant 30-45 minutes.",
-    lbl_sight: "Sight", lbl_nose: "Nose", lbl_palate: "Palate", lbl_notes: "Sommelier Notes", lbl_origin: "Origin", lbl_character: "Character", lbl_positioning: "Positioning", lbl_pairing: "Recommended Pairing", lbl_style: "Style", lbl_production: "Production", lbl_profile: "Profile", lbl_food: "Pairing",
-    nipslip_badge: "Red · Volume", nipslip_eyebrow: "Second Wine · High Rotation", nipslip_subtitle: "Red · Blend · Stellenbosch, South Africa",
-    nipslip_sight: "Intense, youthful ruby with vibrant violet edges. Lively, attractive brilliance that seduces from the first moment.",
-    nipslip_nose: "Ripe red fruits, blackberry, black pepper, vanilla and clove. Honest, direct aromas without artifice.",
-    nipslip_palate: "Silky, enveloping entry, juicy and structured mid-palate. Polished tannins with a clean finish of over 20 seconds.",
-    nipslip_notes: "Nip Slip is <em>instant seduction</em>. From the very first moment in the glass, the explosive fruit and spicy character of South African Shiraz captivate effortlessly. This is not a wine that asks for analysis — it is a wine that asks for <em>conversation, laughter and another glass</em>. The Cabernet blend provides structure without rigidity; the Mourvedre adds earthy depth. The result is an incredibly <em>versatile</em> red.",
-    nipslip_style: "Deep ruby, red and black fruit, subtle spice",
-    nipslip_palate_spec: "Silky entry, structured mid-palate, polished tannins",
-    nipslip_positioning: "Sales pillar — glass and bottle in daily service",
-    nipslip_score: "<strong>Ready to enjoy now.</strong><br>The ultimate all-rounder. Versatile, charismatic and memorably easy to recommend. Serve at 16 degrees. No decanting needed.",
-    grace_badge: "White · Signature", grace_eyebrow: "Third Wine · V Collection", grace_subtitle: "White · Chenin Blanc · Viognier · Chardonnay",
-    grace_sight: "Pale gold with elegant greenish reflections. Crystal-clear brilliance. Fine, persistent tears.",
-    grace_nose: "White peach, grapefruit, orange blossom, subtle vanilla, lees notes. Aromatically generous yet restrained.",
-    grace_palate: "Creamy, enveloping texture. Vibrant acidity that sustains everything. Long finish with mineral and citrus memory.",
-    grace_notes: "Grace is a white that <em>defies expectations</em>. The first impression is Mediterranean freshness — citrus, stone fruit — but the lees texture and Viognier build a <em>mid-palate of unexpected richness</em>. It evolves in the glass: the first 15 minutes are pure vibrant fruit; the second glass reveals <em>complexity, depth and growing character</em>. The South African Chenin Blanc provides the acid backbone that keeps everything in perfect balance. A white with soul.",
-    grace_profile: "Tropical fruit, citrus, peach, vanilla, lees character",
-    grace_food: "Seafood, mussels, duck, Asian cuisine, risotto",
-    grace_score: "<strong>Evolution potential: 3-5 years.</strong><br>A first-class gastronomic white. Ideal for aperitif and main courses. Serve at 10-12 degrees in a wide glass.",
-    temp_tag: "Temperature and Service Guide",
-    temp_pangea: "Large Bordeaux glass. Decant 30-45 minutes. Serve with full protocol.",
-    temp_ns_sub: "Red Volume",
-    temp_nipslip: "Universal red glass. No decanting needed. Direct, agile service.",
-    temp_grace: "Wide white glass. Remove from ice bucket 5 minutes before. Avoid over-chilling.",
-    service_tag: "Service Tips",
-    svc1_title: "The Right Glass", svc1_text: "The glass is not decoration — it amplifies or destroys aroma. Pangea demands Bordeaux; Grace needs width to breathe. Never serve a complex white in a narrow glass.",
-    svc2_title: "Precise Temperature", svc2_text: "One degree too warm in a red reduces fruit perception. One degree too cold in a white hides complexity. Precision in service is a silent form of elegance.",
-    svc3_title: "The Moment", svc3_text: "Pangea is for the reflective pause. Nip Slip, for social energy. Grace, for that instant when the sun descends and the sea breeze arrives. Every wine has its perfect moment.",
-    closing_quote: "The finest sommelier is not the one who knows the most.<br>It is the one who <em>listens</em> best —<br>to the wine and to the one who drinks it.",
-    closing_sig: "With passion,"
-  };
-
-  // ── FRANCAIS ──
-  T.fr = {
-    cover_eyebrow: "Guide de Degustation Exclusif",
-    cover_title: "L\u2019Art de<br><em>Deguster</em>",
-    cover_sub: "Trois vins. Trois mondes. Une experience sensorielle complete.",
-    cover_scroll: "Decouvrir",
-    photo1_title: "Ou la Mediterranee devient verre",
-    photo1_sub: "Un espace qui merite un programme vinicole a sa hauteur.",
-    intro_tag: "Bienvenue a la Degustation",
-    intro_text: "Ce guide n\u2019est pas une simple liste de notes.<br>C\u2019est une <em>invitation a ressentir</em>.<br><br>Chaque vin a ete selectionne pour raconter une histoire complete — de la premiere impression visuelle a la finale persistante gravee dans la memoire du palais.",
-    intro_note: "Prenez votre temps. Le vin n\u2019est jamais presse. Observez, faites tourner le verre, respirez profondement avant chaque gorgee.",
-    ritual_tag: "Le Rituel de la Degustation",
-    r1_title: "Vue", r1_text: "Inclinez le verre sur un fond blanc. Observez la couleur, l\u2019intensite, les reflets au bord. Le menisque revele l\u2019age ; le coeur, la concentration.",
-    r2_title: "Nez", r2_text: "D\u2019abord au repos : les aromes primaires emergent. Puis faites tourner doucement. Deuxieme passage : la complexite se deploie. Fruit, terre, epices, memoire.",
-    r3_title: "Bouche", r3_text: "Une gorgee genereuse qui couvre tout le palais. Attaque, evolution en milieu de bouche, finale. Cherchez l\u2019equilibre entre acidite, tanin, fruit et corps.",
-    r4_title: "Finale", r4_text: "La persistance du vin apres avoir avale. Comptez les secondes. Les grands vins persistent, changent et evoluent. Ils invitent toujours a revenir au verre.",
-    selection_title: "La Selection",
-    pangea_badge: "Rouge · Prestige", pangea_eyebrow: "Premier Vin · Assemblage Global", pangea_subtitle: "Rouge de cinq pays · Edition limitee",
-    pangea_sight: "Rubis profond aux reflets grenat intenses. Larme dense, lente et glycerique. Concentration exceptionnelle.",
-    pangea_nose: "Cassis, cedre, tabac blond, graphite, violette fanee. Complexe, en couches, chocolat noir et cuir fin.",
-    pangea_palate: "Attaque enveloppante et genereuse. Tanins de soie a structure noble. Milieu de bouche tridimensionnel. Finale de plus de 45 secondes.",
-    pangea_notes: "Pangea est un vin qui ne se comprend pas en une seule gorgee. C\u2019est un <em>voyage a travers cinq terroirs</em>. Le premier nez offre des fruits noirs murs et des epices douces ; apres dix minutes, emergent des notes de <em>graphite, cuir et terre humide</em>. En bouche, la texture est presque <em>tridimensionnelle</em> — des couches qui se deploient avec patience. La finale est interminable.",
-    pangea_character: "Complexe, fluide, couches qui se revelent avec elegance",
-    pangea_positioning: "Icone de la carte — presence et differenciation absolues",
-    pangea_score: "<strong>Potentiel de garde : 15-20 ans.</strong><br>Vin de meditation. Reserver aux tables en quete de l\u2019exceptionnel. Servir en grand verre Bordeaux a 17 degres. Decanter 30-45 minutes.",
-    lbl_sight: "Vue", lbl_nose: "Nez", lbl_palate: "Bouche", lbl_notes: "Notes du Sommelier", lbl_origin: "Origine", lbl_character: "Caractere", lbl_positioning: "Positionnement", lbl_pairing: "Accords Recommandes", lbl_style: "Style", lbl_production: "Production", lbl_profile: "Profil", lbl_food: "Accords",
-    nipslip_badge: "Rouge · Volume", nipslip_eyebrow: "Deuxieme Vin · Haute Rotation", nipslip_subtitle: "Rouge · Assemblage · Stellenbosch, Afrique du Sud",
-    nipslip_sight: "Rubis intense, jeune, aux bords violaces vibrants. Eclat vif et seduisant.",
-    nipslip_nose: "Fruits rouges murs, mure, poivre noir, vanille et girofle. Aromes francs et directs.",
-    nipslip_palate: "Attaque soyeuse, milieu de bouche juteux et structure. Tanins polis. Finale de plus de 20 secondes.",
-    nipslip_notes: "Nip Slip, c\u2019est la <em>seduction immediate</em>. Le fruit explosif et le caractere epice du Shiraz sud-africain captivent sans effort. Un vin qui demande la <em>conversation, les rires et un autre verre</em>. Le Cabernet apporte la structure ; le Mourvedre ajoute profondeur. Un rouge incroyablement <em>polyvalent</em>.",
-    nipslip_style: "Rubis profond, fruits rouges et noirs, epices subtiles",
-    nipslip_palate_spec: "Attaque soyeuse, milieu structure, tanins polis",
-    nipslip_positioning: "Pilier des ventes — verre et bouteille au quotidien",
-    nipslip_score: "<strong>Pret a boire maintenant.</strong><br>Le grand polyvalent. Versatile, charismatique et facile a recommander. Servir a 16 degres.",
-    grace_badge: "Blanc · Signature", grace_eyebrow: "Troisieme Vin · V Collection", grace_subtitle: "Blanc · Chenin Blanc · Viognier · Chardonnay",
-    grace_sight: "Or pale aux reflets verts elegants. Eclat cristallin. Larme fine et persistante.",
-    grace_nose: "Peche blanche, pamplemousse, fleur d\u2019oranger, vanille subtile, notes de lies.",
-    grace_palate: "Texture cremeuse. Acidite vibrante. Longue finale minerale et agrumee.",
-    grace_notes: "Grace est un blanc qui <em>defie les attentes</em>. Fraicheur mediterraneenne — agrumes, fruits a noyau — mais la texture sur lies et le Viognier construisent un <em>milieu de bouche d\u2019une richesse inattendue</em>. Un vin qui evolue : le deuxieme verre revele <em>complexite, profondeur et caractere</em>. Un blanc avec une ame.",
-    grace_profile: "Fruits tropicaux, agrumes, peche, vanille, caractere sur lies",
-    grace_food: "Fruits de mer, moules, canard, cuisine asiatique, risotto",
-    grace_score: "<strong>Potentiel d\u2019evolution : 3-5 ans.</strong><br>Blanc gastronomique de premier ordre. Servir a 10-12 degres en verre large.",
-    temp_tag: "Guide de Temperature et Service", temp_pangea: "Grand verre Bordeaux. Decanter 30-45 min. Service avec protocole.",
-    temp_ns_sub: "Rouge Volume", temp_nipslip: "Verre rouge universel. Pas de decantation. Service direct et agile.",
-    temp_grace: "Grand verre blanc. Retirer du seau 5 min avant. Eviter le sur-refroidissement.",
-    service_tag: "Conseils de Service",
-    svc1_title: "Le Bon Verre", svc1_text: "Le verre n\u2019est pas decoratif — il amplifie ou detruit les aromes. Pangea exige un Bordeaux ; Grace a besoin de largeur. Jamais de blanc complexe en verre etroit.",
-    svc2_title: "Temperature Juste", svc2_text: "Un degre de trop dans un rouge reduit le fruit. Un degre de moins dans un blanc cache la complexite. La precision est elegance.",
-    svc3_title: "Le Moment", svc3_text: "Pangea pour la pause reflexive. Nip Slip pour l\u2019energie sociale. Grace pour cet instant ou le soleil descend et la brise arrive. Chaque vin a son moment.",
-    closing_quote: "Le meilleur sommelier n\u2019est pas celui qui sait le plus.<br>C\u2019est celui qui <em>ecoute</em> le mieux —<br>le vin et celui qui le boit.",
-    closing_sig: "Avec passion,"
-  };
-
-  // ── DEUTSCH ──
-  T.de = {
-    cover_eyebrow: "Exklusiver Verkostungsfuhrer",
-    cover_title: "Die Kunst des<br><em>Verkostens</em>",
-    cover_sub: "Drei Weine. Drei Welten. Ein vollstandiges Sinneserlebnis.",
-    cover_scroll: "Entdecken",
-    photo1_title: "Wo das Mittelmeer zum Glas wird",
-    photo1_sub: "Ein Ort, der ein Weinprogramm auf Augenhohe verdient.",
-    intro_tag: "Willkommen zur Verkostung",
-    intro_text: "Dieser Fuhrer ist keine blosse Liste von Verkostungsnotizen.<br>Er ist eine <em>Einladung zu fuhlen</em>.<br><br>Jeder Wein wurde ausgewahlt, um eine vollstandige Geschichte zu erzahlen — vom ersten visuellen Eindruck bis zum persistenten Finale.",
-    intro_note: "Nehmt euch Zeit. Wein hat niemals Eile. Beobachtet, schwenkt das Glas, atmet tief ein vor jedem Schluck.",
-    ritual_tag: "Das Ritual der Verkostung",
-    r1_title: "Auge", r1_text: "Neigt das Glas vor weissem Hintergrund. Beobachtet Farbe, Intensitat und Randreflexe. Der Meniskus verrat das Alter; das Herz die Konzentration.",
-    r2_title: "Nase", r2_text: "Zuerst in Ruhe: die Primararomen entfalten sich. Dann sanft schwenken. Zweiter Durchgang: die Komplexitat offenbart sich. Frucht, Erde, Gewurz, Erinnerung.",
-    r3_title: "Gaumen", r3_text: "Ein grosszugiger Schluck, der den gesamten Gaumen bedeckt. Antrunk, Entwicklung, Finale. Sucht das Gleichgewicht zwischen Saure, Tannin, Frucht und Korper.",
-    r4_title: "Finale", r4_text: "Die Persistenz nach dem Schlucken. Zahlt die Sekunden. Grosse Weine verweilen, wandeln sich und entwickeln sich. Sie laden zuruck zum Glas ein.",
-    selection_title: "Die Auswahl",
-    pangea_badge: "Rotwein · Prestige", pangea_eyebrow: "Erster Wein · Globaler Blend", pangea_subtitle: "Rotwein aus funf Landern · Limitierte Edition",
-    pangea_sight: "Tiefes Rubinrot mit intensem Granatschimmer. Dichte, langsame Tranen. Aussergewohnliche Konzentration.",
-    pangea_nose: "Cassis, Zeder, Blondtabak, Graphit, verwelktes Veilchen. Komplex, geschichtet, dunkle Schokolade und feines Leder.",
-    pangea_palate: "Umhullender Antrunk. Seidige Tannine mit edler Struktur. Dreidimensionaler Mittelteil. Finale von uber 45 Sekunden.",
-    pangea_notes: "Pangea ist ein Wein, der sich nicht mit einem Schluck erschliesst. Er ist eine <em>Reise durch funf Terroirs</em>. Die erste Nase bietet reife dunkle Frucht und susse Gewurze; nach zehn Minuten treten Noten von <em>Graphit, Leder und feuchter Erde</em> hervor. Am Gaumen ist die Textur fast <em>dreidimensional</em> — Schichten mit unendlicher Geduld. Das Finale ist endlos.",
-    pangea_character: "Komplex, fliessend, Schichten mit naturlicher Eleganz",
-    pangea_positioning: "Ikone der Karte — absolute Prasenz und Differenzierung",
-    pangea_score: "<strong>Lagerpotential: 15-20 Jahre.</strong><br>Wein zur Meditation. Im grossen Bordeaux-Glas bei 17 Grad. 30-45 Min dekantieren.",
-    lbl_sight: "Auge", lbl_nose: "Nase", lbl_palate: "Gaumen", lbl_notes: "Notizen des Sommeliers", lbl_origin: "Herkunft", lbl_character: "Charakter", lbl_positioning: "Positionierung", lbl_pairing: "Empfohlene Begleitung", lbl_style: "Stil", lbl_production: "Produktion", lbl_profile: "Profil", lbl_food: "Begleitung",
-    nipslip_badge: "Rotwein · Volumen", nipslip_eyebrow: "Zweiter Wein · Hohe Rotation", nipslip_subtitle: "Rotwein · Blend · Stellenbosch, Sudafrika",
-    nipslip_sight: "Intensives jugendliches Rubinrot mit violetten Randern. Lebendiger, verfuhrerischer Glanz.",
-    nipslip_nose: "Reife rote Fruchte, Brombeere, schwarzer Pfeffer, Vanille und Nelke. Ehrliche, direkte Aromen.",
-    nipslip_palate: "Seidiger Antrunk, saftiger strukturierter Mittelteil. Polierte Tannine. Finale uber 20 Sekunden.",
-    nipslip_notes: "Nip Slip ist <em>sofortige Verfuhrung</em>. Die explosive Frucht und der wurzige Shiraz-Charakter fangen muhelos ein. Kein Wein fur Analyse — ein Wein fur <em>Gesprach, Lachen und Nachschenken</em>. Cabernet bringt Struktur; Mourvedre fugt erdige Tiefe hinzu. Ein unglaublich <em>vielseitiger</em> Rotwein.",
-    nipslip_style: "Tiefes Rubinrot, rote und schwarze Fruchte, dezente Gewurze",
-    nipslip_palate_spec: "Seidiger Einstieg, strukturierte Mitte, polierte Tannine",
-    nipslip_positioning: "Verkaufssaule — Glas und Flasche im taglichen Service",
-    nipslip_score: "<strong>Jetzt trinkbereit.</strong><br>Der grosse Allrounder. Vielseitig, charismatisch und leicht zu empfehlen. Bei 16 Grad servieren.",
-    grace_badge: "Weisswein · Signature", grace_eyebrow: "Dritter Wein · V Collection", grace_subtitle: "Weisswein · Chenin Blanc · Viognier · Chardonnay",
-    grace_sight: "Blasses Gold mit eleganten grunlichen Reflexen. Kristallklarer Glanz. Feine persistente Tranen.",
-    grace_nose: "Weisser Pfirsich, Grapefruit, Orangenblute, dezente Vanille, Hefenoten.",
-    grace_palate: "Cremige Textur. Lebendige Saure. Langes Finale mit mineralischer und zitrischer Erinnerung.",
-    grace_notes: "Grace ist ein Weisswein, der <em>Erwartungen sprengt</em>. Mediterrane Frische — Zitrus, Steinobst — aber die Hefetextur und der Viognier schaffen ein <em>Mittelteil von unerwarteter Fulle</em>. Ein Wein der sich entwickelt: die ersten 15 Minuten sind Frucht; das zweite Glas enthullt <em>Komplexitat, Tiefe und wachsenden Charakter</em>. Ein Weisswein mit Seele.",
-    grace_profile: "Tropische Fruchte, Zitrus, Pfirsich, Vanille, Hefecharakter",
-    grace_food: "Meeresfruchte, Muscheln, Ente, asiatische Kuche, Risotto",
-    grace_score: "<strong>Entwicklungspotential: 3-5 Jahre.</strong><br>Erstklassiger gastronomischer Weisswein. Bei 10-12 Grad im weiten Glas servieren.",
-    temp_tag: "Temperatur- und Servicefuhrer", temp_pangea: "Grosses Bordeaux-Glas. 30-45 Min dekantieren. Mit Protokoll servieren.",
-    temp_ns_sub: "Rotwein Volumen", temp_nipslip: "Universelles Rotweinglas. Keine Dekantierung. Direkter agiler Service.",
-    temp_grace: "Weites Weissweinglas. 5 Min vor Servieren aus dem Kuhler. Nicht uberkuhlen.",
-    service_tag: "Servicetipps",
-    svc1_title: "Das Richtige Glas", svc1_text: "Das Glas verstarkt oder zerstort das Aroma. Pangea verlangt Bordeaux; Grace braucht Weite. Nie einen komplexen Weissen im engen Glas.",
-    svc2_title: "Prazise Temperatur", svc2_text: "Ein Grad zu warm mindert Frucht. Ein Grad zu kalt versteckt Komplexitat. Prazision im Service ist stille Eleganz.",
-    svc3_title: "Der Moment", svc3_text: "Pangea fur die nachdenkliche Pause. Nip Slip fur soziale Energie. Grace wenn die Sonne sinkt und die Meeresbrise eintrifft. Jeder Wein hat seinen Moment.",
-    closing_quote: "Der beste Sommelier ist nicht der, der am meisten weiss.<br>Es ist der, der am besten <em>zuhort</em> —<br>dem Wein und dem, der ihn trinkt.",
-    closing_sig: "Mit Leidenschaft,"
-  };
-
-  // ── ITALIANO ──
-  T.it = {
-    cover_eyebrow: "Guida alla Degustazione Esclusiva",
-    cover_title: "L\u2019Arte di<br><em>Degustare</em>",
-    cover_sub: "Tre vini. Tre mondi. Un\u2019esperienza sensoriale completa.",
-    cover_scroll: "Scoprire",
-    photo1_title: "Dove il Mediterraneo diventa calice",
-    photo1_sub: "Uno spazio che merita un programma vinicolo alla sua altezza.",
-    intro_tag: "Benvenuti alla Degustazione",
-    intro_text: "Questa guida non e un semplice elenco di note.<br>E un <em>invito a sentire</em>.<br><br>Ogni vino e stato selezionato per raccontare una storia completa — dalla prima impressione visiva al finale persistente impresso nella memoria del palato.",
-    intro_note: "Prendetevi il vostro tempo. Il vino non ha mai fretta. Osservate, ruotate il calice, respirate profondamente prima di ogni sorso.",
-    ritual_tag: "Il Rituale della Degustazione",
-    r1_title: "Vista", r1_text: "Inclinate il calice su sfondo bianco. Osservate il colore, l\u2019intensita, i riflessi al bordo. Il menisco rivela l\u2019eta; il cuore la concentrazione.",
-    r2_title: "Naso", r2_text: "Prima a riposo: gli aromi primari emergono liberi. Poi ruotate dolcemente. Secondo passaggio: la complessita si dispiega. Frutta, terra, spezie, memoria.",
-    r3_title: "Bocca", r3_text: "Un sorso generoso che copra tutto il palato. Attacco, evoluzione al centro, finale. Cercate l\u2019equilibrio tra acidita, tannino, frutta e corpo.",
-    r4_title: "Finale", r4_text: "La persistenza del vino dopo aver deglutito. Contate i secondi. I grandi vini persistono, cambiano e si evolvono. Invitano sempre a tornare al calice.",
-    selection_title: "La Selezione",
-    pangea_badge: "Rosso · Prestige", pangea_eyebrow: "Primo Vino · Blend Globale", pangea_subtitle: "Rosso di cinque paesi · Edizione limitata",
-    pangea_sight: "Rubino profondo con riflessi granato intensi. Lacrima densa, lenta e glicerica. Concentrazione eccezionale.",
-    pangea_nose: "Cassis, cedro, tabacco biondo, grafite, violetta appassita. Complesso, stratificato, cioccolato fondente e cuoio fine.",
-    pangea_palate: "Attacco avvolgente e generoso. Tannini di seta dalla struttura nobile. Centro bocca tridimensionale. Finale di oltre 45 secondi.",
-    pangea_notes: "Pangea e un vino che non si comprende in un solo sorso. E un <em>viaggio attraverso cinque terroir</em>. Il primo naso offre frutta nera matura e spezie dolci; dopo dieci minuti, emergono note di <em>grafite, cuoio e terra umida</em>. In bocca, la consistenza e quasi <em>tridimensionale</em> — strati con pazienza infinita. Il finale e interminabile.",
-    pangea_character: "Complesso, fluido, strati che si rivelano con eleganza naturale",
-    pangea_positioning: "Icona della carta — presenza e differenziazione assolute",
-    pangea_score: "<strong>Potenziale di invecchiamento: 15-20 anni.</strong><br>Vino da meditazione. In ampio calice Bordeaux a 17 gradi. Decantare 30-45 minuti.",
-    lbl_sight: "Vista", lbl_nose: "Naso", lbl_palate: "Bocca", lbl_notes: "Note del Sommelier", lbl_origin: "Origine", lbl_character: "Carattere", lbl_positioning: "Posizionamento", lbl_pairing: "Abbinamento Consigliato", lbl_style: "Stile", lbl_production: "Produzione", lbl_profile: "Profilo", lbl_food: "Abbinamento",
-    nipslip_badge: "Rosso · Volume", nipslip_eyebrow: "Secondo Vino · Alta Rotazione", nipslip_subtitle: "Rosso · Blend · Stellenbosch, Sudafrica",
-    nipslip_sight: "Rubino intenso, giovane, con bordi violacei vibranti. Brillantezza viva e seducente.",
-    nipslip_nose: "Frutti rossi maturi, mora, pepe nero, vaniglia e chiodi di garofano. Aromi franchi e diretti.",
-    nipslip_palate: "Attacco setoso e avvolgente, centro succoso e strutturato. Tannini levigati. Finale di oltre 20 secondi.",
-    nipslip_notes: "Nip Slip e <em>seduzione immediata</em>. La frutta esplosiva e il carattere speziato dello Shiraz catturano senza sforzo. Non e un vino per l\u2019analisi — e un vino per <em>conversazione, risate e un altro bicchiere</em>. Il Cabernet porta struttura; il Mourvedre aggiunge profondita terrosa. Un rosso incredibilmente <em>versatile</em>.",
-    nipslip_style: "Rubino profondo, frutti rossi e neri, spezie sottili",
-    nipslip_palate_spec: "Attacco setoso, centro strutturato, tannini levigati",
-    nipslip_positioning: "Pilastro delle vendite — calice e bottiglia quotidiano",
-    nipslip_score: "<strong>Pronto da gustare ora.</strong><br>Il grande tuttofare. Versatile, carismatico e facile da consigliare. Servire a 16 gradi.",
-    grace_badge: "Bianco · Signature", grace_eyebrow: "Terzo Vino · V Collection", grace_subtitle: "Bianco · Chenin Blanc · Viognier · Chardonnay",
-    grace_sight: "Oro pallido con eleganti riflessi verdognoli. Brillantezza cristallina. Lacrima fine e persistente.",
-    grace_nose: "Pesca bianca, pompelmo, fiori d\u2019arancio, vaniglia sottile, note di fecce.",
-    grace_palate: "Consistenza cremosa. Acidita vibrante. Lungo finale minerale e agrumato.",
-    grace_notes: "Grace e un bianco che <em>sfida le aspettative</em>. Freschezza mediterranea — agrumi, frutta a nocciolo — ma le fecce e il Viognier costruiscono un <em>centro bocca di ricchezza inaspettata</em>. Un vino che evolve: il secondo bicchiere rivela <em>complessita, profondita e carattere crescente</em>. Un bianco con anima.",
-    grace_profile: "Frutta tropicale, agrumi, pesca, vaniglia, carattere sulle fecce",
-    grace_food: "Frutti di mare, cozze, anatra, cucina asiatica, risotto",
-    grace_score: "<strong>Potenziale di evoluzione: 3-5 anni.</strong><br>Bianco gastronomico di primo livello. Servire a 10-12 gradi in calice ampio.",
-    temp_tag: "Guida alla Temperatura e al Servizio", temp_pangea: "Ampio calice Bordeaux. Decantare 30-45 min. Servizio con protocollo.",
-    temp_ns_sub: "Rosso Volume", temp_nipslip: "Calice rosso universale. Nessuna decantazione. Servizio diretto e agile.",
-    temp_grace: "Ampio calice bianco. Rimuovere dalla glacette 5 min prima. Non raffreddare troppo.",
-    service_tag: "Consigli di Servizio",
-    svc1_title: "Il Calice Giusto", svc1_text: "Il calice amplifica o distrugge l\u2019aroma. Pangea esige Bordeaux; Grace ha bisogno di ampiezza. Mai un bianco complesso in calice stretto.",
-    svc2_title: "Temperatura Precisa", svc2_text: "Un grado di troppo riduce il frutto. Un grado di meno nasconde la complessita. La precisione nel servizio e eleganza silenziosa.",
-    svc3_title: "Il Momento", svc3_text: "Pangea per la pausa riflessiva. Nip Slip per l\u2019energia sociale. Grace per quell\u2019istante in cui il sole scende e la brezza arriva. Ogni vino ha il suo momento.",
-    closing_quote: "Il miglior sommelier non e chi sa di piu.<br>E chi meglio <em>ascolta</em> —<br>il vino e chi lo beve.",
-    closing_sig: "Con passione,"
-  };
-
-  // ── MALLORQUI ──
-  T.ca = {
-    cover_eyebrow: "Guia de Tast Exclusiva",
-    cover_title: "S\u2019Art de<br><em>Tastar</em>",
-    cover_sub: "Tres vins. Tres mons. Una experiencia sensorial completa.",
-    cover_scroll: "Descobrir",
-    photo1_title: "Alla on sa Mediterrania es torna copa",
-    photo1_sub: "Un espai que mereix un programa de vi a sa seva altura.",
-    intro_tag: "Benvinguts an es Tast",
-    intro_text: "Aquesta guia no es un simple llistat de notes de tast.<br>Es una <em>invitacio a sentir</em>.<br><br>Cada vi ha estat seleccionat per contar una historia completa — des de sa primera impressio visual fins an es final persistent que queda gravat dins sa memoria des paladar.",
-    intro_note: "Preniu-vos es vostro temps. Es vi no te pressa mai. Observau, girau sa copa, alenau profundament abans de cada glop. Deixau que es vi parli primer.",
-    ritual_tag: "Es Ritual des Tast",
-    r1_title: "Vista", r1_text: "Inclinau sa copa damunt fons blanc. Observau es color, sa intensitat, es reflexos an es caire. Es menisc revela s\u2019edat; es cor, sa concentracio i sa densitat des vi.",
-    r2_title: "Nas", r2_text: "Primer en repos: ses aromes primaries surten lliures. Llavors girau amb suavitat i deixau que es vi aleni. Segon pas: sa complexitat es desplega. Fruita, terra, especies, memoria.",
-    r3_title: "Boca", r3_text: "Un glop generos que cobri tot es paladar. Entrada, evolucio en es mid-palate, final. Cercau s\u2019equilibri entre acidesa, tani, fruita i cos. Sentiu sa textura.",
-    r4_title: "Final", r4_text: "Sa persistencia des vi despres de tragar. Comptau es segons. Es grans vins romanen, canvien i evolucionen. I sempre vos conviden a tornar a sa copa.",
-    selection_title: "Sa Seleccio",
-    pangea_badge: "Negre · Prestige", pangea_eyebrow: "Primer Vi · Blend Global", pangea_subtitle: "Negre de cinc paisos · Edicio limitada",
-    pangea_sight: "Robi profund amb espurnes de granat intens. Llagrima densa, lenta i glicerinica. Concentracio excepcional.",
-    pangea_nose: "Cassis, cedre, tabac ros, grafit, viola marcida. Complex, en capes, amb un fons de xocolata negra i cuiro fi.",
-    pangea_palate: "Entrada envoltant i generosa. Tanins de seda amb estructura noble. Mid-palate tridimensional. Final de mes de 45 segons.",
-    pangea_notes: "Pangea es un vi que no s\u2019enten amb un sol glop. Es un <em>viatge a traves de cinc terroirs</em>. Es primer nas ofereix fruita negra madura i especies dolces; despres de deu minuts dins sa copa, surten notes de <em>grafit, cuiro i terra humida</em> que revelen sa complexitat de cinc origens units dins un sol blend. En boca, sa textura es quasi <em>tridimensional</em> — capes que es despleguen amb paciencia infinita. Es final es quilometric, amb un record mineral i de regalesia que convida irresistiblement an es seguent glop.",
-    pangea_character: "Complex, fluid, capes que es revelen amb elegancia natural",
-    pangea_positioning: "Icona de carta — presencia i diferenciacio absoluta",
-    pangea_score: "<strong>Potencial de guarda: 15-20 anys.</strong><br>Vi de meditacio i celebracio. Reservar per a taules que cerquen s\u2019excepcional. Servir dins copa Bordeaux ampla a 17 graus. Decantar 30-45 minuts.",
-    lbl_sight: "Vista", lbl_nose: "Nas", lbl_palate: "Paladar", lbl_notes: "Notes des Sommelier", lbl_origin: "Origen", lbl_character: "Caracter", lbl_positioning: "Posicionament", lbl_pairing: "Maridatge Recomanat", lbl_style: "Estil", lbl_production: "Produccio", lbl_profile: "Perfil", lbl_food: "Maridatge",
-    nipslip_badge: "Negre · Volum", nipslip_eyebrow: "Segon Vi · Alta Rotacio", nipslip_subtitle: "Negre · Blend · Stellenbosch, Sudafrica",
-    nipslip_sight: "Robi intens, jove, amb caires violacis vibrants. Lluentor viva i atractiva que sedueix des des primer moment.",
-    nipslip_nose: "Fruits vermells madurs, mora, pebre negre, toc de vainilla i clau. Aromes franques i directes, sense artifici.",
-    nipslip_palate: "Entrada sedosa i envoltant, mid-palate sucos i estructurat. Tanins polits amb final net de mes de 20 segons.",
-    nipslip_notes: "Nip Slip es <em>seduccio immediata</em>. Des des primer moment dins sa copa, sa fruita explosiva i es caracter especiat des Shiraz sudafrica atrapen sense esforc. No es un vi que demani analisi — es un vi que demana <em>conversa, rialles i repetir</em>. Es blend amb Cabernet aporta estructura sense rigidesa; es Mourvedre suma profunditat terrosa i complexitat. Es resultat es un negre increiblement <em>versatil</em>: funciona igual de be baix des sol devora sa mar que a una taula de nit amb bona companyia.",
-    nipslip_style: "Robi profund, fruita vermella i negra, especies subtils",
-    nipslip_palate_spec: "Entrada sedosa, mid-palate estructurat, tanins polits",
-    nipslip_positioning: "Pilar de vendes — copa i botella en servei diari",
-    nipslip_score: "<strong>Llest per gaudir ara.</strong><br>Es gran todoterreny de sa seleccio. Versatil, carismatic i memorablement facil de recomanar. Servir a 16 graus. No requereix decantacio.",
-    grace_badge: "Blanc · Signature", grace_eyebrow: "Tercer Vi · V Collection", grace_subtitle: "Blanc · Chenin Blanc · Viognier · Chardonnay",
-    grace_sight: "Daurat palid amb reflexos verdosos elegants. Lluentor cristallina. Llagrima fina i persistent que parla de concentracio.",
-    grace_nose: "Melicoto blanc, aranja, flor de taronger, vainilla subtil, notes de lies. Aromaticament generos pero contingut.",
-    grace_palate: "Textura cremosa i envoltant. Acidesa vibrant que ho soste tot. Final llarg amb record mineral i citric que no s\u2019apaga.",
-    grace_notes: "Grace es un blanc que <em>desafia expectatives</em>. Sa primera impressio es de frescor mediterrania — citrics, fruita d\u2019os — pero sa textura sobre lies i s\u2019aportacio des Viognier construeixen un <em>mid-palate d\u2019una riquesa inesperada</em>. Es un vi que evoluciona dins sa copa: es primers 15 minuts son pura fruita vibrant; sa segona copa revela <em>complexitat, profunditat i un caracter que creix</em>. Es Chenin Blanc sudafrica aporta sa columna vertebral acida que mante tot en equilibri perfecte. Un blanc amb anima.",
-    grace_profile: "Fruita tropical, citrics, melicoto, vainilla, caracter sobre lies",
-    grace_food: "Marisc, musclos, annera, cuina asiatica, arros brut",
-    grace_score: "<strong>Potencial d\u2019evolucio: 3-5 anys.</strong><br>Blanc gastronomic de primer nivell. Copa ideal tant per aperitiu com per plats principals. Servir a 10-12 graus dins copa ampla.",
-    temp_tag: "Guia de Temperatura i Servei", temp_pangea: "Copa Bordeaux ampla. Decantar 30-45 minuts. Servir amb protocol d\u2019etiqueta.",
-    temp_ns_sub: "Negre Volum", temp_nipslip: "Copa universal negre. No requereix decantacio. Servei directe, agil i sense ceremonies.",
-    temp_grace: "Copa blanca ampla. Treure de sa cubera 5 minuts abans. Evitar sobrerefredament — es fred excessiu amaga sa complexitat.",
-    service_tag: "Consells de Servei",
-    svc1_title: "Sa Copa Correcta", svc1_text: "Sa copa no es decoracio — amplifica o destrueix s\u2019aroma. Pangea exigeix Bordeaux; Grace necessita amplitud per alenar i expressar-se. Mai servir un blanc complex dins copa estreta.",
-    svc2_title: "Temperatura Justa", svc2_text: "Un grau de mes dins un negre redueix sa percepcio de fruita. Un grau de menys dins un blanc amaga sa complexitat. Sa precisio en es servei es una forma silenciosa d\u2019elegancia.",
-    svc3_title: "Es Moment", svc3_text: "Pangea es per a sa pausa reflexiva. Nip Slip, per a s\u2019energia social. Grace, per a aquell instant en que es sol davalla i s\u2019embat arriba de sa mar. Cada vi te es seu moment perfecte.",
-    closing_quote: "Es millor sommelier no es qui mes sap.<br>Es qui millor <em>escolta</em> —<br>es vi i qui el beu.",
-    closing_sig: "Amb passio,"
-  };
-
-  /* ════════════════════════════════════════
-     PAIRINGS
-     ════════════════════════════════════════ */
-
-  var pairings = {
-    es: {
-      pangea: ["Chuleton madurado", "Cordero asado", "Quesos curados", "Trufa negra", "Caza menor"],
-      nipslip: ["Hamburguesa gourmet", "Pizza de trufa", "Costillas BBQ", "Pasta ragu", "Embutidos ibericos"],
-      grace: ["Marisco fresco", "Moules frites", "Pato confitado", "Cocina asiatica", "Risotto de setas"]
-    },
-    en: {
-      pangea: ["Aged ribeye", "Roast lamb", "Aged cheeses", "Black truffle", "Game birds"],
-      nipslip: ["Gourmet burger", "Truffle pizza", "BBQ ribs", "Ragu pasta", "Iberian charcuterie"],
-      grace: ["Fresh seafood", "Moules frites", "Duck confit", "Asian cuisine", "Mushroom risotto"]
-    },
-    fr: {
-      pangea: ["Cote de boeuf", "Agneau roti", "Fromages affines", "Truffe noire", "Gibier"],
-      nipslip: ["Burger gourmet", "Pizza a la truffe", "Travers de porc", "Pasta ragu", "Charcuterie iberique"],
-      grace: ["Fruits de mer", "Moules frites", "Confit de canard", "Cuisine asiatique", "Risotto champignons"]
-    },
-    de: {
-      pangea: ["Gereiftes Ribeye", "Lammbraten", "Gereifte Kase", "Schwarzer Truffel", "Wildgeflugel"],
-      nipslip: ["Gourmet-Burger", "Truffel-Pizza", "BBQ-Rippchen", "Ragu-Pasta", "Iberische Wurstwaren"],
-      grace: ["Frische Meeresfruchte", "Moules frites", "Entenconfit", "Asiatische Kuche", "Steinpilz-Risotto"]
-    },
-    it: {
-      pangea: ["Costata frollata", "Agnello arrosto", "Formaggi stagionati", "Tartufo nero", "Selvaggina"],
-      nipslip: ["Hamburger gourmet", "Pizza al tartufo", "Costine BBQ", "Pasta al ragu", "Salumi iberici"],
-      grace: ["Frutti di mare", "Moules frites", "Anatra confit", "Cucina asiatica", "Risotto ai funghi"]
-    },
-    ca: {
-      pangea: ["Carn de bou madurada", "Xot rostit", "Formatge mahones curat", "Tofona negra", "Cassa menor"],
-      nipslip: ["Hamburguesa gourmet", "Coca de trampo", "Costelles BBQ", "Arros brut", "Sobrassada i mel"],
-      grace: ["Marisc fresc", "Musclos", "Annera amb col", "Cuina asiatica", "Arros de peix"]
-    }
-  };
-
-  /* ════════════════════════════════════════
-     LANGUAGE SWITCHING
-     ════════════════════════════════════════ */
-
-  var langLabels = { es: "ESP", en: "ENG", fr: "FRA", de: "DEU", it: "ITA", ca: "MLQ" };
-  var currentLang = "es";
-
-  function setLang(lang) {
-    currentLang = lang;
-    var s = T[lang];
-    if (!s) return;
-
-    // Update all i18n elements
-    var els = document.querySelectorAll("[data-i18n]");
-    for (var i = 0; i < els.length; i++) {
-      var key = els[i].getAttribute("data-i18n");
-      if (s[key] !== undefined) {
-        els[i].innerHTML = s[key];
-      }
-    }
-
-    // Update lang menu active state
-    var btns = document.querySelectorAll("#langMenu button");
-    for (var j = 0; j < btns.length; j++) {
-      if (btns[j].getAttribute("data-lang") === lang) {
-        btns[j].className = "active";
-      } else {
-        btns[j].className = "";
-      }
-    }
-
-    // Update label and close dropdown
-    document.getElementById("langLabel").textContent = langLabels[lang];
-    document.getElementById("langSel").classList.remove("open");
-
-    // Update pairings
-    var p = pairings[lang];
-    if (!p) return;
-    var wines = ["pangea", "nipslip", "grace"];
-    for (var w = 0; w < wines.length; w++) {
-      var container = document.getElementById(wines[w] + "-pairing");
-      if (container && p[wines[w]]) {
-        var html = "";
-        for (var t = 0; t < p[wines[w]].length; t++) {
-          html += '<span class="pairing-tag">' + p[wines[w]][t] + "</span>";
-        }
-        container.innerHTML = html;
-      }
-    }
-  }
-
-  /* ════════════════════════════════════════
-     EVENT LISTENERS
-     ════════════════════════════════════════ */
-
-  // Language toggle
-  document.getElementById("langToggle").addEventListener("click", function(e) {
-    e.stopPropagation();
-    document.getElementById("langSel").classList.toggle("open");
-  });
-
-  // Language menu buttons
-  var langBtns = document.querySelectorAll("#langMenu button");
-  for (var i = 0; i < langBtns.length; i++) {
-    langBtns[i].addEventListener("click", function(e) {
-      e.stopPropagation();
-      setLang(this.getAttribute("data-lang"));
-    });
-  }
-
-  // Close dropdown on outside click
-  document.addEventListener("click", function(e) {
-    if (!e.target.closest(".lang-sel")) {
-      document.getElementById("langSel").classList.remove("open");
-    }
-  });
-
-  // Scroll progress
   window.addEventListener("scroll", function() {
     var h = document.documentElement;
     var pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
     document.getElementById("scrollProgress").style.width = pct + "%";
   });
 
-  // Scroll reveal
   var revealEls = document.querySelectorAll(".reveal");
   var observer = new IntersectionObserver(function(entries) {
     for (var i = 0; i < entries.length; i++) {
@@ -1842,7 +1340,6 @@ body::after {
     observer.observe(revealEls[r]);
   }
 
-  // Parallax on photo breaks
   window.addEventListener("scroll", function() {
     var imgs = document.querySelectorAll(".parallax-img");
     for (var i = 0; i < imgs.length; i++) {
@@ -1850,10 +1347,6 @@ body::after {
       imgs[i].style.transform = "translateY(" + (rect.top * 0.12) + "px)";
     }
   });
-
-  // Initialize
-  setLang("es");
-
 })();
 </script>
 </body>
